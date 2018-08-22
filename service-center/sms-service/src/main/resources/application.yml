@@ -1,0 +1,6 @@
+info:
+  name: 短信服务
+  contact: 动脑学院VIP
+  
+server:
+  port: 9005

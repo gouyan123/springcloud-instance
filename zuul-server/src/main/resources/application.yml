@@ -1,0 +1,6 @@
+info:
+  name: 系统网关服务
+  contact: 动脑学院VIP
+
+server:
+  port: 8765

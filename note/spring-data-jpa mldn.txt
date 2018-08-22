@@ -1,0 +1,16 @@
+repository里面没有接口，是一个标识接口，用法如下，定义持久层接口 继承 repository；
+public interface IUserDao extends repository<User,id>{
+    public User save(User user);
+}
+*******************************************************************************************
+注意：接口可以多继承；
+*******************************************************************************************
+JpaRepository接口内容最多，一般定义dao接口继承该类就可以，用法如下，可以查看该接口的方法，根据方法名代表
+含义，选择复写方法；
+public interface IUserDao extends repository<User,id>{
+    public User save(User user);
+}
+
+注意：springboot中使用spring data jpa时，必须在启动类上面加 @EnableJpaRepositories(basePackage="...")
+注意：spring data jpa 与 spring data rest区别？
+

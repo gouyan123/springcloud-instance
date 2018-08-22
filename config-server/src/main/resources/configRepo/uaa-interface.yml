@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    type: org.apache.tomcat.jdbc.pool.DataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/test
+    username: root
+    password: 123456
+  jpa:
+    properties:
+          hibernate:
+            hbm2ddl:
+              # 自动创建表
+              auto: update
+
+    

@@ -1,0 +1,68 @@
+-------------------------创建swarm集群--------------------------------------------------------------
+# 在myvm1中创建一个swarm manage主节点；linux下直接写IP，windows下写虚拟机IP
+docker swarm init --advertise-addr <机器ip>
+
+# 创建集群下的网络，首先查询网络[docker network ls]
+docker network create -d overlay --subnet 10.0.0.1/24 --attachable swarm_net
+
+# 确定集群是否完成，在manage节点上可以看到当前集群有哪些机器；
+docker node ls
+
+# 添加集群可视化管理的工具 portainer，它实际上还是docker提供的命令在干活，先查询服务[docker service ls]
+# 9001端口，进去后改密码，用户名 admin 密码 12345678
+docker service create --name docker_portainer --publish 9001:9000 --constraint 'node.role == manager' --mount type=bind,src=/etc/localtime,dst=/etc/localtime --mount type=bind,src=//var/run/docker.sock,dst=/var/run/docker.sock portainer/portainer -H unix:///var/run/docker.sock
+
+#通过9001端口打开分布式集群可视化管理工具 protainer：http://101.132.109.12:9001
+
+# 新的节点怎么加入？
+# 在manage节点上执行下面这个命令，生成一个用于新manage加入的token；在新节点中心执行输出的内容可以用于manage加入swarm集群
+docker swarm join-token manager
+
+# 在manage节点上执行下面这个命令，生成一个用于worker节点加入的token；在新节点中心执行输出的内容可以用于worker子节点加入swarm集群
+docker swarm join-token worker
+
+# 如果要退出swarm集群，使用下面这个命令，退出不了就加个 --force
+docker swarm leave
+-------------------------部署基础环境---------------------------------------------------------------
+# swarm集群部署；base为环境名称；注意：中间件并不是说部署了多个实例就是集群了；stack栈简单理解为组；
+# 利用filezilla，将综合实战三中deploy中文件夹上传到gy的 /srv/ftp中；因为gitlab耗内存，因此去掉了；使用码云
+# 代替，地址：https://gitee.com/dongnao_tony/configRepo
+docker stack deploy --compose-file /srv/ftp/deploy/docker-compose-middleware.yml base
+
+# 通过可视化管理工具 protainer中的service，查看上面创建的服务；
+-------------------------构建微服务的docker镜像---------------------------------------------------------------
+-------------maven配置----------------------------------
+<!--修改maven中conf/settings.xml文件-->
+<!--servers节点加入docker私有仓库的用户名和密码信息-->
+<servers>
+    <server>
+        <id>docker-aliyun-hub</id>
+        <username>用户名</username>
+        <password>密码</password>
+        <configuration>
+            <email>邮箱</email>
+        </configuration>
+    </server>
+</servers>
+-------------maven配置----------------------------------
+-------------构建微服务的docker镜像----------------------
+# 1、添加环境变量，设置docker私有仓库的地址。可以设置永久的，也可以通过下面的命令设置临时的。(永久环境变量的方法自行百度)
+# ip记得改成你自己的仓库地址
+# windows下powershell临时设置，当前窗口有效  $Env:DOCKER_REGISTRY_URL = "192.168.99.100:5000"
+# windows下cmd临时设置  set DOCKER_REGISTRY_URL=192.168.99.100:5000
+# linux下临时设置，当前登录session有效  export DOCKER_REGISTRY_URL=192.168.99.100:5000
+# 注意：私服需要密码的情况，通过 docker pull 拉取镜像之前，需要先登录 docker login ...
+# 阿里云是肯定需要先登录的...registry.cn-hangzhou.aliyuncs.com/dongnao
+
+# 2、通过maven插件打包、构建镜像并推送到私有仓库
+# 使用maven打包  mvn clean install
+# 将指定的服务 构建镜像 并 推送到私有仓库；这个一定要在具体的服务下执行  mvn docker:build -DpushImage
+# mvn clean install docker:build -DpushImage
+# 管理私有镜像仓库
+# 查看镜像，通过http请求  http://192.168.99.100:5000/v2/_catalog  http://192.168.99.100:5000/v2/<镜像名>/tags/list
+# 删除镜像,这个操作需要在虚拟机内部去操作，喜欢折腾的去做
+# 进入容器内部
+# docker exec -it registry bash
+# 镜像保存在这个文件夹下，可以手动删除里面的镜像
+# /var/lib/registry/docker/registry/v2/repositories/
+# 退出容器 exit

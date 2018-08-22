@@ -1,0 +1,46 @@
+info:
+  name: 配置中心
+  contact: 动脑VIP
+
+server:
+  port: 8888
+# 使得/refresh不需要验权
+management: 
+  security: 
+    enabled: false
+
+spring:
+  cloud:
+    client:
+      hostname: ${HOSTNAME:localhost}   # 如果获取不到环境变量HOSTNAME，就用默认值 localhost
+  # rabbitmq的地址 用户名 密码
+  rabbitmq:
+    host: ${tony_public_rabbitmq_host:47.100.49.95}
+    username: ${tony_public_rabbitmq_username:gouyan}
+    password: ${tony_public_rabbitmq_password:123456}
+
+# 访问时需要提供用户和密码
+security:
+  basic:
+    enable: true
+  # 这个接口不做用户名密码校验, /monitor接收git刷新通知
+  ignored: /monitor
+  user:
+    name: ${tony_config_server_security_name:tony}
+    password: ${tony_configserver_security_password:12345678}
+#encrypt:
+  # 加解密用的秘钥
+  #key: ${tony_configserver_encrypt_key:12345678}
+
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: ${tony_eureka_serviceUrl:http://127.0.0.1:8761/eureka/}
+  instance:
+    # 不配置preferIpAddress，因为生产环境中，不直接使用IP，使用hostname，因为docker中自带DNS可以解析hostname
+    # 心跳间隔
+    leaseRenewalIntervalInSeconds: 10
+    hostname: ${HOSTNAME:localhost}
+  

@@ -1,0 +1,359 @@
+实例需求：
+项目场景：小米打造自己 官方商城；
+组成模块：客户下单 + 锁定库存 + 页面通知[下单成功] + 短信通知[下单成功] + 邮件通过[下单成功]；
+实现目标：做一个 分布式微服务架构系统；
+系统组成：基础组件[eureka服务端集群 config服务端集群 账户中心集群 都是eureka，config服务端] +
+         中间组件[gitlab rabbitmq mysql] +
+         业务中心[订单服务 库存集群 短信服务 邮件服务 都是eureka，config客户端] +
+         网关机器；
+系统组成：详见 微服务系统架构.png 图片；
+uaa：账户中心，负责 账户认证，权限校验；
+------------------------------------------------------------------------------------------
+创建maven子模块 eureka-server，启动类加@EnableEurekaServer注解启动 eureka服务端，配置见 bootstrap.yml
+application.yml，详情见注解，注意 ${tony_eureka_serviceUrl}  # 获取环境变量，运行时才知道的环境变
+量；
+
+创建maven子模块 config-server，启动类加@EnableConfigServer注解启动 config服务端，配置见 bootstrap.yml
+application.yml，详情见注解，注意 用户名获取环境变量；
+
+现在，不直接在idea里面启动了，将 集群 部署到docker里，使用docker运行它；
+-----------------docker------------------------------------------------------------------
+docker出现前，创建虚拟机：
+一台主机[25G 8核]，里面 创建 多个虚拟机[4G 2核]，虚拟机里面 运行linux镜像，这个虚拟机就是一个完整的主
+机了，各主机不能交互，并且浪费资源，因为linux里面有很多功能用不上，并且资源利用率低[4G 2核 是固定值 不
+能伸缩改变]平时浪费资源，高峰期资源紧张；
+
+docker出现后：docker是一个容器，不是一个独立的操作系统；
+原理：宿主机上运行docker引擎，docker引擎运行docker镜像，会产生一个docker容器，各docker容器相互隔离，
+里面运行不同程序，并且各docker容器可以网络互通；
+
+设置环境变量 MACHINE_STORAGE_PATH=F:\dockerMachine，docker虚拟机都存在这个目录下；
+
+操作：windows是在虚拟机里面运行的docker linux运行docker没有虚拟机的概念；
+cmd命令行：创建虚拟机 myvm：
+docker-machine create --virtualbox-memory "1024" --engine-registry-mirror="https://s0iielsh.mirror.aliyuncs.com" --engine-insecure-registry="0.0.0.0/0" -d virtualbox myvm
+关闭虚拟机 myvm：
+docker-machine.exe stop myvm
+
+
+程序代码打包为镜像，docker引擎运行该镜像，产生容器；那么 镜像怎么做？
+eureka-server服务中docker包中有 Dockerfile文件，文件内容查找及定义如下：
+搜dev.aliyun.com，搜java，找到Start a java instance，复制里面的内容到 Dockerfile文件中，如下：
+
+FROM java                   # 下载java镜像
+COPY . /usr/src/myapp       # 复制 当前文件夹 到 /usr/src/myapp即镜像里面；
+WORKDIR /usr/src/myapp      # 工作目录
+RUN javac Main.java         # 创建镜像时 运行的命令 编译；
+CMD ["java", "Main"]        # 启动镜像时 运行的命令
+*****注意：Dockerfile中不能有注释；
+
+***创建docker镜像，运行docker镜像[都要在docker虚拟机中操作，docker-machine操作虚拟机 docker操作镜像
+容器 windows是在虚拟机里面运行的docker linux运行docker没有虚拟机的概念]
+
+创建文件夹 D:\dockerDemo，里面创建 Dockerfile内容如上，即 Main.java文件；
+启动docker：
+Docker Quickstart Terminal
+开启虚拟机myvm
+docker-machine.exe start myvm
+切换到 myvm虚拟机：
+@FOR /f "tokens=*" %i IN ('docker-machine env myvm') DO @%i
+创建镜像，此处相当于安装java运行环境jdk：
+docker build -t my-java-app .                        # -t[标签] my-java-app[镜像名称 自定义]
+运行镜像
+docker run -it -d --rm --name my-running-app my-java-app# my-running-app运行镜像后容器名称，
+--rm 运行后删除该容器，-d 后台运行
+查看镜像
+docker image ls
+删除镜像
+docker image rm 镜像名
+查看容器
+docker container ls
+查看所有容器及状态
+docker ps -a
+
+docker中运行 eureka集群：
+打包 eureka-server：
+mvn clean package
+给 eureka-server.jar包创建一个Dockerfile文件，存在一个文件夹里；此处将该包放到项目的docker文件夹，该
+文件夹里面有Dockerfile文件，内容如下：
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# 告诉docker，需要java运行环境；
+FROM java
+# 将当前目录下*.jar 添加到镜像中，并命名为 app.jar；
+ADD *.jar app.jar
+# 开放tcp端口
+EXPOSE 	8761/tcp
+# 镜像启动的时候执行这个命令
+CMD exec java ${JAVA_OPTS} -Djava.security.egd=file:/dev/./urandom -jar /app.jar
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+在eureka-server/src/main/docker文件夹中启动cmd命令，创建镜像：
+docker build -t tony_eureka .     # -t 镜像名称，.代表利用当前文件夹里面的Dockerfile文件；
+因为是eureka集群，所以需要创建网络，创建局域网 tony_net，加入同一局域网的各容器可以相互访问：
+
+docker network create tony_net
+运行镜像，启动 eureka1：
+docker run -d --net=tony_net --name eureka1 --hostname=eureka1 -p 8761:8761 -e tony.eureka.serviceUrl="http://eureka1:8761/eureka/,http://eureka2:8761/eureka/" -e JAVA_OPTS="-Dspring.profiles.active=prod" -e tony.public.logstash.tcp.host="60.205.209.106:4560" -v /etc/localtime:/etc/localtime tony_eureka
+含义：-d 后台启动；
+--net=tony_net 加入局域网tony_net，使用同一局域网的各容器可以相互访问；
+--name容器名；
+--hostname 被application.yml中${hostname}读取到值；
+-p 8761:8761 外部端口映射到容器内部端口；
+-e 环境变量 -e tony.eureka.serviceUrl=... 被application.yml中${tony.eureka.serviceUrl}读取值；
+-e JAVA_OPTS="-Dspring.profiles.active=prod" 读取环境变量中profile；
+-e tony.public.logstash.tcp.host="60.205.209.106:4560" 读取环境变量中日志输出到elk；
+-v /etc/localtime:/etc/localtime tony_eureka 集群各节点同步时间；
+tony_eureka 要运行的镜像；
+
+运行镜像，启动eureka2
+docker run -d --net=tony_net --name eureka2 --hostname=eureka2 -p 8762:8761 -e tony.eureka.serviceUrl="http://eureka1:8761/eureka/,http://eureka2:8761/eureka/" -e JAVA_OPTS="-Dspring.profiles.active=prod" -e tony.public.logstash.tcp.host="60.205.209.106:4560" -v /etc/localtime:/etc/localtime tony_eureka
+查看正在运行容器：
+docker ps -a
+查看虚拟机[windows环境下]ip：
+docker-machine env myvm
+
+测试：访问eureka服务端
+http://192.168.99.101:8761
+http://192.168.99.101:8762
+-----------------------------------------------------------------------------------------
+1、部署项目，通过docker部署；
+使用服务编排工具：
+①docker-compose部署项目：单机运行多个服务；
+②docker stack部署集群项目：一个服务部署在多个主机上，跨容器跨主机；
+
+部署中间件[mysql rabbimq...]：
+中间件[mysql...] 和服务 是分开部署的，中间件使用 docker-compose部署，docker-compose的配置文件在项
+目的 deploy目录下，其中，service.env配置环境变量，docker-compose-middleware.yml配置中间件[mysql...]
+微服务日志汇总：一个服务，多个实例，各个实例的日志发送给 logstash，logstash再将日志汇总到 ES检索工具，
+Kibana是ES的可视化工具；
+分布式链路追踪可视化工具：zipkin；
+docker-compse一键运行这些中间件；
+部署项目：利用docker-maven-plugin插件，打包镜像，将jar包和Dockerfile文件放到一个文件夹，并将镜像存
+到私有仓库[*-middlewareyml registry]上；
+管理私有仓库，查看镜像：虚拟机ip:5000/v2/_catalog
+
+部署基础组件[eureka服务端 config服务端]，配置文件为 deploy\docker-compose-common.yml
+部署核心组件[网关zuul uaa用户中心]，对外部访问而言，这两个部分必不可少；
+报错后怎么看日志：找logback-spring.xml
+2、演示项目；
+uaa设置了token校验，怎么获取tocken呢？
+3、介绍每一个组件的作用；
+4、对项目实现的分析；
+订单系统order-service自己创建订单后，调用wms-service系统，锁定指定商品库存，然后订单系统调用短信系统
+sms-service，邮件系统mail-service来通知客户，service-core定义各系统公用的类，然后各系统导入该包即可；
+-----------------------------------------------------------------------------------------
+学习 网关，跨域，验权 怎么做的？
+
+index.html里面发送 http请求，请求网关，是一个跨域的请求，怎么做的呢？
+zuul-server里面有一个跨域的处理 AppConfig.java，利用cors解决，cors就是利用filter处理头部信息；
+zuul-server健全：看 zuul流程图.png，定义各种filter类，TokenValidataFilter中shouldFilter()方法
+过滤掉不需要tocken验证的请求，根据 zuul-server.yml自定义配置 tony；
+tony:
+  zuul:
+    # 是否开启默认fallback
+    defaultFallback:
+      enable: false
+    tokenFilter:
+      noAuthenticationRoutes:
+        - uaa-token
+@ConfigurationProperties("tony.zuul.tokenFilter")
+public class TonyConfigurationBean {
+	// 这个列表存的是routeId。这个列表里面的路由，不需要进行token校验，在TokenValidataFilter中会用到
+	private List<String> noAuthenticationRoutes;
+}
+将配置文件中 tony.zuul.tokenFilter的值 noAuthenticationRoutes注入给 这个类的成员变量
+
+zuul-server配置文件将/tocken/byPhone路由到 uaa-interface用户中心，进入该系统 TokenController类的
+@PostMapping("/token/byPhone")  @Repository
+getTokenByPhone()方法，里面调用了  UserRepository接口，这是spring data jpa写的，验证成功，利用jwt
+创建tocken，jwtTokenProvider.createToken(parseClaims(domain)))
+
+-------------------springcloud-instance代码开发-------------------------------------------
+通过 index.html实现前后端分离，springcloud使用docker部署，使用portainer工具进行动态扩容；将开发的项目
+打包为docker镜像，发到私有仓库；
+
+eureka-server，直接在idea中跑即可，使用的是dev环境配置，不需要环境变量
+config-server，直接在idea中跑即可；注意，application.yml中 ${HOSTNAME:localhost}表示 如果获取不到环
+境变量HOSTNAME，就用默认值 localhost；注意，config-server的 configRepo目录中，application.yml
+代表 config客户端各服务的公共配置文件；通过config-server读取各应用的配置信息
+http://localhost:8888/order-server/default，表示读取config-server中名称为order-server.yml的
+配置信息； application.yml可以称为 系统配置，order-service.yml可以称为 应用配置；
+zuul-server，直接在idea中跑即可；
+uaa-interface，直接在idea中跑即可；并在mysql中创建 uaa_db表；插入一条数据，网页文件中sql已给；
+order-service，直接在idea中跑即可；
+wms-service，直接在idea中跑即可；
+sms-service，直接在idea中跑即可；
+mail-service，直接在idea中跑即可；
+这节课主要讲 链路追踪；
+
+发post请求获取tocken，http://localhost:8765/api/tocken/byPhone，content {phone:10086,password:123}
+，然后其他请求，将tocken放到 Headers中；
+在wms-db中添加商品，网页文件中sql已给；
+发get请求，http://localhost:8765/api/order-service/order/new/1，将tocken放到 Headers中，来下
+订单；映射到OrderController类的 add()方法 如下：
+@RequestMapping("/new/{goodsId}")// 商品id为1，因为商品表里就一个商品
+	/**@PathVariable("goodsId") long goodsId 获取http请求中的 路径变量 赋值给 long goodsId
+	 * @RequestHeader(name = "phone") String phone 获取请求头中的 phone的值，并赋值给String phone
+	 * */
+	public String add(@PathVariable("goodsId") long goodsId, @RequestHeader(name = "phone") String phone,
+			@RequestHeader(name = "email") String email) throws Exception {
+		// 新增订单
+		OrderDomain order = new OrderDomain();
+		order.setOrderId(UUID.randomUUID().toString());
+		order.setCreateTime(new Date());
+		order.setEmail(email);
+		order.setPhone(phone);
+		order.setGoodsId(goodsId);
+		orderService.save(order);
+		return "下单成功，这个响应来自(新版)订单服务器：" + applicationContext.getEnvironment().getProperty("HOSTNAME");
+	}
+}
+其中，@RequestHeader(name="phone")表示获取头信息中phone对应的值，该头信息是TokenValidataFilter类
+的 验权方法 run()添加的，语句为ctx.getZuulRequestHeaders().put("phone",claims.get("phone").toString());
+这样 OrderController就是无状态的，不需要保存session，也不需要session共享
+*****************************************************************************************
+有状态 vs 无状态
+有状态：服务器中持有用户session，这时服务器是有状态的，多个服务器之间需要保持session同步；
+无状态：服务器不持有用户session，将各服务的session统一交给一个服务器管理，session共享；
+
+*****************************************************************************************
+接下来看 orderService.save(order);做了什么，
+
+注意，使用回滚，当wmsServiceClient.lock(order.getGoodsId());调用远程失败时，orderRepository.save(order);
+也回滚；
+@Transactional(rollbackFor=Throwable.class)/**回滚*/
+public class OrderService {
+public void save(OrderDomain order) throws Exception {
+		// 保存订单，用来做数据库操作，spring jpa结合hibernate
+		orderRepository.save(order);
+		// 库存锁定，lock()方法请求wms-service服务的 /wms/lock/{goodsId}接口
+		String lockResult = wmsServiceClient.lock(order.getGoodsId());
+    }
+}
+订单，库存都完成，接下来发短信，发邮件，通过 rabbitmq 消息队列来实现；
+
+消息队列使用场景：系统解耦，削峰填谷，任务调度，通过@EnableBinding注解作为入口来分析；
+任务调度 [第一个任务完成了，将消息发送到消息队列，第二个任务取出后，再执行]
+
+在 service-core[该服务不需要做成镜像，只是作为一个包被其他服务导入即可]服务中定义一些 各服务公用的内容：
+其中 包含如下几个类：
+@Component
+public interface SmsChannel extends SmsInputChannel, SmsOutputChannel {
+	String CHANNEL = "sms-send";
+}
+表示定义 一个信道 channel
+-----
+@Component
+public interface SmsOutputChannel {
+	@Output(SmsChannel.CHANNEL)
+	MessageChannel output(); // 这里的channel是用来发送数据的
+}
+表示 从内存 往rabbitmq输出内容，order-service服务要想使用，必须在该服务启动类上面加注解激活：
+@EnableJpaRepositories(basePackages = { "com.dongnaoedu.springcloud" })
+@EnableBinding({ OrderOutputChannel.class, SmsOutputChannel.class }) // 通过stream绑定MQ
+-----
+@Component
+public interface SmsInputChannel {
+	@Input(SmsChannel.CHANNEL)
+	MessageChannel input(); // 这里的channel是用来发送数据的
+}
+表示 从rabbitmq 往内存输入内容，sms-service服务要想使用，必须在该服务启动类上面加注解激活：
+@EnableBinding({ SmsInputChannel.class }) // 增加一个stream通道
+
+通过SmsMqListener类的receive()方法类监听 mq的信道，通过service-core服务端的FastJsonMessageConverter
+类对消息进行编解码；
+@Component
+public class SmsMqListener {
+	static final Logger logger = LoggerFactory.getLogger(SmsMqListener.class);
+	@Autowired
+	SmsRepository smsRepository;
+
+	@StreamListener(SmsChannel.CHANNEL)
+	public void receive(SmsDomain smsDomain) {
+		smsRepository.save(smsDomain);
+		logger.debug("给手机号{}发送一条新短信,短信内容:{}", smsDomain.getPhone(), smsDomain.getContent());
+	}
+}
+spring cloud stream配置在 order-service.yml中；
+-----
+spring cloud stream配置 点对点，order-service.yml中，destination代表点对点，不定义这个destination，代
+表广播，所有绑定这个通道的队列都能收到；group保证幂等性，防止消费者重复处理，在这个组内只能消费一次；
+
+OrderService类中，发布取消订单事件；
+orderOutputChannel.output().send(MessageBuilder.createMessage(new OrderCreateEvent(order),
+				new MessageHeaders(Collections.singletonMap("event-type", eventType))));
+
+order-service.yml和mail-service.yml中，绑定同一个通道 order-event，没有指定目的地，可以实现群发；
+
+spring cloud stream：
+定义：首先定义一个channel，然后定义 @Input @Output；
+激活：@EnableBinding
+发数据：@Output
+接收mq的消息：@StreamListener
+
+----------消息总线 spring cloud bus-----------------------------------------------------------------
+config服务端保存的各服务配置文件内容发生变化时，将变化的内容发送到 rabbitmq，然后rabbitmq发送到各个config
+客户端；
+自动更新依赖的是spring-cloud-config-monitor包，
+--------------------测试代码------------------------------------------------------------------------
+启动各服务：
+eureka-server，config-server，zuul-server，uaa-interface，order-service，wms-service，
+sms-service，mail-service服务；
+
+启动uaa-interface服务后，test数据库中添加数据如下：
+INSERT INTO `tb_user` (`user_id`, `email`, `password`, `phone`,`user_name`) VALUES ('1', '123@qq.com', '123', '10086', 'tony');
+
+启动wms-service服务后，test数据库中添加数据如下：
+INSERT INTO `wms‐db`.`tb_goods` (`goods_id`, `goods_name`, `sku_id`,`stock_count`, `version`) VALUES ('1', '充气玩具', '1', '50', '0');
+
+获取token：
+发post请求 http://127.0.0.1:8765/api/token/byPhone ，json数据为{"phone":"10086","password":"123"}
+返回 token如下：
+{
+    "accessToken": "eyJhbGciOiJIUzUxMiIsInppcCI6IkRFRiJ9.eNpMjksOwjAMRO-SdYPyNaUrTsAd3NQRQTT9JJFAiLuTSF2ws8czb_xhISU2sILIQ8y0e3TEOhYws0FarUFb08uOYZmqTdbTI4c6TXJCAHfhAshwY0hxhF5xInG21oOXunFKov2GM9VEXuK7KvRaD7JR0Mg0Y3g2ttLXbTu5Za6u9b7EFpJC9FD3VMajPo7-_7PvDwAA__8.O3Xy9mJbmICIA4khMWfIMHTYXu9c4ZO9jEKm2xwhDmKNXiQigGBNehNr4TVDSx2x0I21zr3jWrJgP4t_pDxA-Q"
+}
+
+http请求时header中设置Authorization的值为上面获取的token内容；
+
+下单：
+发post请求 http://127.0.0.1:8765/api/order-service/order/new/1
+返回end代表正常；
+检查方式：看数据库有没有数据；
+
+---------------创建swarm集群------------------------------------------------------------------------
+docker swarm作用：集群的创建和管理；
+
+# 在虚拟机default中创建一个swarm manage主节点；linux下直接写IP，windows下写虚拟机IP4[192.168.99.100]
+docker swarm init --advertise-addr <机器ip>
+
+# 创建集群下的网络
+docker network create -d overlay --subnet 10.0.0.1/24 --attachable swarm_net
+# 查询网络
+docker network ls
+
+# 确定集群是否完成，在manage节点上可以看到当前集群有哪些机器
+docker node ls
+
+# 添加集群可视化管理的工具portainer，它实际上还是docker提供的命令在干活
+# 9001端口，进去后改密码，用户名 admin 密码 tryportainer
+docker service create --name docker_portainer --publish 9001:9000 --constraint 'node.role == manager' --mount type=bind,src=/etc/localtime,dst=/etc/localtime --mount type=bind,src=//var/run/docker.sock,dst=/var/run/docker.sock portainer/portainer -H unix:///var/run/docker.sock
+# 通过 9001端口打开 portainer，可以看到docker集群的相关信息：http://192.168.99.100:9001，用户名：admin；密码：12345678；
+# docker中服务的概念：将容器以一种服务来管理，即服务编排；
+
+# 新的节点怎么加入？
+# 在manage节点上执行下面这个命令，生成一个用于新manage加入的token；在新节点中心执行输出的内容可以用于manage加入swarm集群
+docker swarm join-token manager
+
+# 在manage节点上执行下面这个命令，生成一个用于worker节点加入的token。在新节点中心执行输出的内容可以用于worker子节点加入swarm集群
+docker swarm join-token worker
+
+# 如果要退出swarm集群，使用下面这个命令，退出不了就加个 --force
+docker swarm leave
+
+---------------部署集群中间件-----------------------------------------------------------------------
+# 一键运行（这些基础中间件是单机部署的）单机和集群两种方式
+# linux下，可能需要自行下载docker-compose命令，单机部署 -d 后台运行
+docker-compose.exe -f .\docker-compose-middleware.yml -p dongnao up -d
+
+# swarm集群部署，（注：中间件并不是说部署了多个实例就是集群了，要注意。）
+
+docker stack deploy --compose-file .\docker-compose-middleware.yml base
