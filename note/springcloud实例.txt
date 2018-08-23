@@ -171,22 +171,26 @@ getTokenByPhone()方法，里面调用了  UserRepository接口，这是spring d
 通过 index.html实现前后端分离，springcloud使用docker部署，使用portainer工具进行动态扩容；将开发的项目
 打包为docker镜像，发到私有仓库；
 
-eureka-server，直接在idea中跑即可，使用的是dev环境配置，不需要环境变量
-config-server，直接在idea中跑即可；注意，application.yml中 ${HOSTNAME:localhost}表示 如果获取不到环
-境变量HOSTNAME，就用默认值 localhost；注意，config-server的 configRepo目录中，application.yml
-代表 config客户端各服务的公共配置文件；通过config-server读取各应用的配置信息
-http://localhost:8888/order-server/default，表示读取config-server中名称为order-server.yml的
-配置信息； application.yml可以称为 系统配置，order-service.yml可以称为 应用配置；
-zuul-server，直接在idea中跑即可；
-uaa-interface，直接在idea中跑即可；并在mysql中创建 uaa_db表；插入一条数据，网页文件中sql已给；
-order-service，直接在idea中跑即可；
-wms-service，直接在idea中跑即可；
-sms-service，直接在idea中跑即可；
-mail-service，直接在idea中跑即可；
-这节课主要讲 链路追踪；
+eureka-server，直接在idea中启动，使用的是dev环境配置，不需要环境变量；logback-spring.xml中<springProfile name="!prod"><appender name="console"...
+表示非生产环境下，将日志打印到控制台 console；logback-spring.xml中<springProfile name="prod"><destination>${logstashHost}</destination>...表示在生产
+环境中，将日志输出到 elk；
 
-发post请求获取tocken，http://localhost:8765/api/tocken/byPhone，content {phone:10086,password:123}
-，然后其他请求，将tocken放到 Headers中；
+config-server，直接在idea中启动；注意，application.yml中 ${HOSTNAME:localhost}表示 如果获取不到环境变量HOSTNAME，就用默认值 localhost；注意，
+config-server的 configRepo目录中，application.yml代表 config客户端各服务的公共配置文件；通过config-server读取各应用的配置信息
+http://localhost:8888/order-server/default，表示读取config-server中名称为order-server.yml的配置信息； application.yml可以称为 系统配置，order-service.yml
+可以称为 应用配置；
+
+zuul-server，直接在idea中启动；
+uaa-interface，直接在idea中跑即可，服务启动后会在mysql的test库中自动创建 tb_user，并手动插入一条数据 sql为 INSERT INTO `test`.`tb_user` (`user_id`, `email`, `password`, `phone`, `user_name`) VALUES ('1', '123@qq.com', '123', '10086', 'tony');
+order-service，直接在idea中启动，启动时会报错 HystrixTargeter.java，因为hystrix在spring启动的时候会调用一个回调，但spring还没有初始化，因此不影响；
+wms-service，直接在idea中启动，服务启动后会在mysql的test库中自动创建 tb_goods，并手动插入一条数据 sql为 INSERT INTO `test`.`tb_goods` (`goods_id`, `goods_name`, `sku_id`, `stock_count`, `version`) VALUES ('1', '充气玩具', '1', '50', '0');
+sms-service，直接在idea中启动；
+mail-service，直接在idea中启动；
+
+实例讲解（三）第2课里面，鉴定权限，跨域，前后端分离已经讲完了，实例讲解（四）第1课 主要讲解 分布式调用 链路追踪；
+可以直接在portainer中删除服务，增加服务；
+
+发post请求获取tocken，http://localhost:8765/api/tocken/byPhone，content {phone:10086,password:123}，然后其他请求，将tocken放到 Headers中；
 在wms-db中添加商品，网页文件中sql已给；
 发get请求，http://localhost:8765/api/order-service/order/new/1，将tocken放到 Headers中，来下
 订单；映射到OrderController类的 add()方法 如下：
@@ -318,42 +322,3 @@ http请求时header中设置Authorization的值为上面获取的token内容；
 发post请求 http://127.0.0.1:8765/api/order-service/order/new/1
 返回end代表正常；
 检查方式：看数据库有没有数据；
-
----------------创建swarm集群------------------------------------------------------------------------
-docker swarm作用：集群的创建和管理；
-
-# 在虚拟机default中创建一个swarm manage主节点；linux下直接写IP，windows下写虚拟机IP4[192.168.99.100]
-docker swarm init --advertise-addr <机器ip>
-
-# 创建集群下的网络
-docker network create -d overlay --subnet 10.0.0.1/24 --attachable swarm_net
-# 查询网络
-docker network ls
-
-# 确定集群是否完成，在manage节点上可以看到当前集群有哪些机器
-docker node ls
-
-# 添加集群可视化管理的工具portainer，它实际上还是docker提供的命令在干活
-# 9001端口，进去后改密码，用户名 admin 密码 tryportainer
-docker service create --name docker_portainer --publish 9001:9000 --constraint 'node.role == manager' --mount type=bind,src=/etc/localtime,dst=/etc/localtime --mount type=bind,src=//var/run/docker.sock,dst=/var/run/docker.sock portainer/portainer -H unix:///var/run/docker.sock
-# 通过 9001端口打开 portainer，可以看到docker集群的相关信息：http://192.168.99.100:9001，用户名：admin；密码：12345678；
-# docker中服务的概念：将容器以一种服务来管理，即服务编排；
-
-# 新的节点怎么加入？
-# 在manage节点上执行下面这个命令，生成一个用于新manage加入的token；在新节点中心执行输出的内容可以用于manage加入swarm集群
-docker swarm join-token manager
-
-# 在manage节点上执行下面这个命令，生成一个用于worker节点加入的token。在新节点中心执行输出的内容可以用于worker子节点加入swarm集群
-docker swarm join-token worker
-
-# 如果要退出swarm集群，使用下面这个命令，退出不了就加个 --force
-docker swarm leave
-
----------------部署集群中间件-----------------------------------------------------------------------
-# 一键运行（这些基础中间件是单机部署的）单机和集群两种方式
-# linux下，可能需要自行下载docker-compose命令，单机部署 -d 后台运行
-docker-compose.exe -f .\docker-compose-middleware.yml -p dongnao up -d
-
-# swarm集群部署，（注：中间件并不是说部署了多个实例就是集群了，要注意。）
-
-docker stack deploy --compose-file .\docker-compose-middleware.yml base

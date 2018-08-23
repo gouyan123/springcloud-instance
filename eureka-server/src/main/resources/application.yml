@@ -51,3 +51,4 @@ eureka:
     responseCacheUpdateIntervalMs: 30000
   instance:
     hostname: ${HOSTNAME}
+---
