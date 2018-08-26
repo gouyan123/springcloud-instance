@@ -183,7 +183,7 @@ http://localhost:8888/order-server/default，表示读取config-server中名称�
 zuul-server，直接在idea中启动；
 uaa-interface，直接在idea中跑即可，服务启动后会在mysql的test库中自动创建 tb_user，并手动插入一条数据 sql为 INSERT INTO `test`.`tb_user` (`user_id`, `email`, `password`, `phone`, `user_name`) VALUES ('1', '123@qq.com', '123', '10086', 'tony');
 order-service，直接在idea中启动，启动时会报错 HystrixTargeter.java，因为hystrix在spring启动的时候会调用一个回调，但spring还没有初始化，因此不影响；
-wms-service，直接在idea中启动，服务启动后会在mysql的test库中自动创建 tb_goods，并手动插入一条数据 sql为 INSERT INTO `test`.`tb_goods` (`goods_id`, `goods_name`, `sku_id`, `stock_count`, `version`) VALUES ('1', '充气玩具', '1', '50', '0');
+wms-service，直接在idea中启动，服务启动后会在mysql的test库中自动创建 tb_goods，并手动插入一条数据 sql为 INSERT INTO `test`.`tb_goods` (`goods_id`, `goods_name`, `sku_id`, `stock_count`, `version`) VALUES ('1', '手机', '1', '50', '0');
 sms-service，直接在idea中启动；
 mail-service，直接在idea中启动；
 

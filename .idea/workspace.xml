@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a5e424af-d5f2-412b-822d-c65c0afd6120" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/note/docker.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/note/docker compose单机运行多服务.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config-server/src/main/resources/configRepo/uaa-interface.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/src/main/resources/configRepo/uaa-interface.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eureka-server/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-server/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eureka-server/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-server/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deploy/docker-compose-middleware.yml" beforeDir="false" afterPath="$PROJECT_DIR$/deploy/docker-compose-middleware.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/note/docker.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/note/springcloud实例.txt" beforeDir="false" afterPath="$PROJECT_DIR$/note/springcloud实例.txt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -33,11 +32,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="springcloud实例.txt" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/note/springcloud实例.txt">
+      <file leaf-file-name="docker compose单机运行多服务.txt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/note/docker compose单机运行多服务.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="331">
-              <caret line="191" column="90" selection-start-line="191" selection-start-column="66" selection-end-line="191" selection-end-column="90" />
+            <state relative-caret-position="656">
+              <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/eureka-server/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="219">
+              <caret line="65" column="47" selection-start-line="65" selection-start-column="28" selection-end-line="65" selection-end-column="47" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="docker-compose-middleware.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/deploy/docker-compose-middleware.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="492">
+              <caret line="189" column="19" lean-forward="true" selection-start-line="189" selection-start-column="19" selection-end-line="189" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -93,7 +110,6 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/eureka-server/src/main/java/com/dongnaoedu/springcloud/Main.java" />
         <option value="$PROJECT_DIR$/eureka-server/src/main/docker/Dockerfile" />
-        <option value="$PROJECT_DIR$/deploy/docker-compose-middleware.yml" />
         <option value="$PROJECT_DIR$/deploy/docker-compose-common.yml" />
         <option value="$PROJECT_DIR$/service-center/order-service/src/main/java/com/dongnaoedu/springcloud/order/client/WmsServiceClient.java" />
         <option value="$PROJECT_DIR$/zuul-server/src/main/java/com/dongnaoedu/springcloud/zuul/AppConfig.java" />
@@ -116,6 +132,9 @@
         <option value="$PROJECT_DIR$/config-server/src/main/resources/configRepo/uaa-interface.yml" />
         <option value="$PROJECT_DIR$/config-server/src/main/resources/configRepo/mail-service.yml" />
         <option value="$PROJECT_DIR$/note/springcloud实例.txt" />
+        <option value="$PROJECT_DIR$/note/docker compose单机部署.txt" />
+        <option value="$PROJECT_DIR$/deploy/docker-compose-middleware.yml" />
+        <option value="$PROJECT_DIR$/note/docker compose单机运行多服务.txt" />
       </list>
     </option>
   </component>
@@ -155,8 +174,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -168,47 +187,17 @@
             <path>
               <item name="springcloud-instance" type="b2602c69:ProjectViewProjectNode" />
               <item name="springcloud-instance" type="462c0819:PsiDirectoryNode" />
-              <item name="service-center" type="462c0819:PsiDirectoryNode" />
+              <item name="deploy" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="springcloud-instance" type="b2602c69:ProjectViewProjectNode" />
               <item name="springcloud-instance" type="462c0819:PsiDirectoryNode" />
-              <item name="service-center" type="462c0819:PsiDirectoryNode" />
-              <item name="mail-service" type="462c0819:PsiDirectoryNode" />
+              <item name="eureka-server" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="springcloud-instance" type="b2602c69:ProjectViewProjectNode" />
               <item name="springcloud-instance" type="462c0819:PsiDirectoryNode" />
-              <item name="service-center" type="462c0819:PsiDirectoryNode" />
-              <item name="mail-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="springcloud-instance" type="b2602c69:ProjectViewProjectNode" />
-              <item name="springcloud-instance" type="462c0819:PsiDirectoryNode" />
-              <item name="service-center" type="462c0819:PsiDirectoryNode" />
-              <item name="mail-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="springcloud-instance" type="b2602c69:ProjectViewProjectNode" />
-              <item name="springcloud-instance" type="462c0819:PsiDirectoryNode" />
-              <item name="service-center" type="462c0819:PsiDirectoryNode" />
-              <item name="mail-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="springcloud-instance" type="b2602c69:ProjectViewProjectNode" />
-              <item name="springcloud-instance" type="462c0819:PsiDirectoryNode" />
-              <item name="service-center" type="462c0819:PsiDirectoryNode" />
-              <item name="mail-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="mail" type="462c0819:PsiDirectoryNode" />
+              <item name="note" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -225,7 +214,7 @@
     <property name="RequestMappingsPanelWidth2" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../general" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -364,12 +353,15 @@
       <workItem from="1533628857603" duration="11975000" />
       <workItem from="1533735746187" duration="4487000" />
       <workItem from="1534920156678" duration="6954000" />
-      <workItem from="1535020544997" duration="8500000" />
+      <workItem from="1535020544997" duration="8889000" />
+      <workItem from="1535072790540" duration="1389000" />
+      <workItem from="1535095398322" duration="798000" />
+      <workItem from="1535277160049" duration="5943000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="108196000" />
+    <option name="totallyTimeSpent" value="116715000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
@@ -387,7 +379,6 @@
       <window_info id="UI Designer" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.32933104" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="bottom" id="Java Enterprise" order="7" />
@@ -396,19 +387,20 @@
       <window_info anchor="bottom" id="Run" order="2" weight="0.66549295" />
       <window_info anchor="bottom" id="Spring" order="7" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49892703" weight="0.7429578" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.2864807" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.29077253" />
       <window_info anchor="bottom" id="Problems" order="8" />
       <window_info anchor="right" id="Bean Validation" order="3" />
       <window_info id="Web" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.32933104" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -418,7 +410,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-commons/1.13.3.RELEASE/spring-data-commons-1.13.3.RELEASE.jar!/org/springframework/data/repository/CrudRepository.class" />
     <entry file="file://$PROJECT_DIR$/service-center/order-service/src/main/java/com/dongnaoedu/springcloud/order/db/OrderRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -521,13 +512,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
           <caret line="56" column="51" lean-forward="true" selection-start-line="56" selection-start-column="24" selection-end-line="56" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config-server/src/main/resources/configRepo/zuul-server.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="78" column="8" selection-start-line="78" selection-start-column="8" selection-end-line="78" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -637,30 +621,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/eureka-server/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="53" selection-start-line="53" selection-end-line="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/service-center/sms-service/src/main/resources/bootstrap.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-593" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/eureka-server/src/main/java/com/dongnaoedu/springcloud/EurekaApp.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="246">
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/note/docker.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/eureka-server/src/main/resources/bootstrap.yml">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/eureka-server/src/main/resources/application.yml">
       <provider selected="true" editor-type-id="text-editor">
@@ -673,20 +639,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="533">
           <caret line="13" column="28" lean-forward="true" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config-server/src/main/resources/bootstrap.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="10" column="48" lean-forward="true" selection-start-line="9" selection-start-column="6" selection-end-line="10" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config-server/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="13" column="11" lean-forward="true" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
         </state>
       </provider>
     </entry>
@@ -711,23 +663,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/uaa-interface/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/uaa-interface/src/main/resources/bootstrap.yml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/uaa-interface/src/main/java/com/dongnaoedu/springcloud/uaa/UAAApplication.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="246">
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config-server/src/main/resources/configRepo/uaa-interface.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="4" column="31" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -738,10 +677,81 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/config-server/src/main/resources/configRepo/zuul-server.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3198">
+          <caret line="78" column="8" selection-start-line="78" selection-start-column="8" selection-end-line="78" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config-server/src/main/resources/bootstrap.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="410">
+          <caret line="10" column="48" selection-start-line="9" selection-start-column="6" selection-end-line="10" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config-server/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="77">
+          <caret line="13" column="11" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zuul-server/src/main/resources/bootstrap.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="820">
+          <caret line="20" column="6" selection-start-line="20" selection-start-column="6" selection-end-line="24" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config-server/src/main/resources/configRepo/uaa-interface.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="4" column="31" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zuul-server/src/main/java/com/dongnaoedu/springcloud/zuul/ZuulApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="20" column="25" lean-forward="true" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uaa-interface/src/main/resources/bootstrap.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-615" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service-center/sms-service/src/main/resources/bootstrap.yml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/note/springcloud实例.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="191" column="90" selection-start-line="191" selection-start-column="66" selection-end-line="191" selection-end-column="90" />
+        <state relative-caret-position="126">
+          <caret line="185" column="199" selection-start-line="185" selection-start-column="71" selection-end-line="185" selection-end-column="199" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy/docker-compose-middleware.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="492">
+          <caret line="189" column="19" lean-forward="true" selection-start-line="189" selection-start-column="19" selection-end-line="189" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eureka-server/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="65" column="47" selection-start-line="65" selection-start-column="28" selection-end-line="65" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/note/docker compose单机运行多服务.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="656">
+          <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
         </state>
       </provider>
     </entry>

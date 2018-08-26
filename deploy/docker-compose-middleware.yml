@@ -1,4 +1,4 @@
-# 中间件部署
+# docker-compose编排工具 部署中间件：
 # 中间件rabbitmq、gitlab、ElasticSearch、kibana、logstash、zipkin、registry私有仓库、kafka
 # compose版本
 version: "3.2"
@@ -58,7 +58,7 @@ services:
   #    resources:
   #      limits:
   #        memory: 700M
-  # 2、安装es。       nosql
+  # 2、安装es。       nosql类似mongodb，用来做检索引擎；
   elasticsearch: 
     image: elasticsearch
     container_name: elasticsearch
@@ -87,6 +87,7 @@ services:
     container_name: kibana
     ports:
       - "5601:5601"
+    # 配置环境变量，其中elasticsearch为主机名称hostname；
     environment:
       - ELASTICSEARCH_URL=http://elasticsearch:9200
     networks:
