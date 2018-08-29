@@ -1,0 +1,22 @@
+spring: 
+  application:
+    name: config-server
+  profiles:
+    active: native  # 激活 native
+  cloud:
+    config:
+      server:
+        # 配置文件 在本地存放地址
+        native:
+          searchLocations: classpath:/configRepo
+        # 配置文件 在gitlab存放地址
+        git:
+          # 记得在先gitlab上创建一个对应的project
+          uri: ${tony_configserver_git_uri}
+          search-paths:  ${tony_configserver_search_path:/}
+          # 去环境变量tony_configserver_git_username读取用户名，如果没读到，使用默认值 root
+          username: ${tony_configserver_git_username:root}
+          password: ${tony_configserver_git_password:12345678}
+        # 加解密
+        #encrypt:
+          #enabled: true

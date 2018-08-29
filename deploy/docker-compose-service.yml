@@ -1,0 +1,191 @@
+# 业务组件部署
+# 订单服务、仓储服务、短信服务、邮件服务
+
+version: "3.2"
+services:
+  # 1、订单服务
+  order-service:
+    # 镜像地址
+    image: 192.168.99.100:5000/order-service:1.0.0
+    # 容器名称
+    container_name: order-service
+    # 端口不对外开放
+    env_file:
+      # 加载环境变量
+      - ./service.env
+    networks:
+      # 加入集群网络
+      - swarm_net
+    volumes:
+      # 将宿主机上的文件挂载到容器内
+      - type: "bind"
+        source: /etc/localtime
+        target: /etc/localtime
+    deploy:
+      # 实例数量
+      replicas: 1
+      # 更新选项
+      update_config:
+        # 每次更新多少个容器
+        parallelism: 1
+        # 间隔时间
+        delay: 10s
+      # 启动错误时，重新启动
+      restart_policy:
+        condition: on-failure
+      resources:
+        limits:
+          # CPU限制
+          cpus: '0.5'
+          # 内存限制
+          memory: 256M
+    # 健康检查，启动后，当这个命令执行没问题，才会任何这个服务启动成功
+    healthcheck:
+      # 命令
+      test: ["CMD", "curl", "-f", "http://localhost:9001/info"]
+      # 间隔时间，安装应用的预计启动时间来设置。比如我们这个springcloud的应用，一般在1分钟半内预计启动完成
+      interval: 1m30s
+      timeout: 10s
+      # 重试次数
+      retries: 5
+  
+  # 2、仓储服务
+  wms-service:
+    # 镜像地址
+    image: 192.168.99.100:5000/wms-service:1.0.0
+    # 容器名称
+    container_name: wms-service
+    # 端口不对外开放
+    env_file:
+      # 加载环境变量
+      - ./service.env
+    networks:
+      # 加入集群网络
+      - swarm_net
+    volumes:
+      # 将宿主机上的文件挂载到容器内
+      - type: "bind"
+        source: /etc/localtime
+        target: /etc/localtime
+    deploy:
+      # 实例数量
+      replicas: 1
+      # 更新选项
+      update_config:
+        # 每次更新多少个容器
+        parallelism: 1
+        # 间隔时间
+        delay: 10s
+      # 启动错误时，重新启动
+      restart_policy:
+        condition: on-failure
+      resources:
+        limits:
+          # CPU限制
+          cpus: '0.5'
+          # 内存限制
+          memory: 256M
+    # 健康检查，启动后，当这个命令执行没问题，才会任何这个服务启动成功
+    healthcheck:
+      # 命令
+      test: ["CMD", "curl", "-f", "http://localhost:9002/info"]
+      # 间隔时间，安装应用的预计启动时间来设置。比如我们这个springcloud的应用，一般在1分钟半内预计启动完成
+      interval: 1m30s
+      timeout: 10s
+      # 重试次数
+      retries: 5
+  # 3、短信服务
+  sms-service:
+    # 镜像地址
+    image: 192.168.99.100:5000/sms-service:1.0.0
+    # 容器名称
+    container_name: sms-service
+    # 端口不对外开放
+    env_file:
+      # 加载环境变量
+      - ./service.env
+    networks:
+      # 加入集群网络
+      - swarm_net
+    volumes:
+      # 将宿主机上的文件挂载到容器内
+      - type: "bind"
+        source: /etc/localtime
+        target: /etc/localtime
+    deploy:
+      # 实例数量
+      replicas: 1
+      # 更新选项
+      update_config:
+        # 每次更新多少个容器
+        parallelism: 1
+        # 间隔时间
+        delay: 10s
+      # 启动错误时，重新启动
+      restart_policy:
+        condition: on-failure
+      resources:
+        limits:
+          # CPU限制
+          cpus: '0.5'
+          # 内存限制
+          memory: 256M
+    # 健康检查，启动后，当这个命令执行没问题，才会任何这个服务启动成功
+    healthcheck:
+      # 命令
+      test: ["CMD", "curl", "-f", "http://localhost:9005/info"]
+      # 间隔时间，安装应用的预计启动时间来设置。比如我们这个springcloud的应用，一般在1分钟半内预计启动完成
+      interval: 1m30s
+      timeout: 10s
+      # 重试次数
+      retries: 5
+  # 4、邮件服务
+  mail-service:
+    # 镜像地址
+    image: 192.168.99.100:5000/mail-service:1.0.0
+    # 容器名称
+    container_name: mail-service
+    # 端口不对外开放
+    env_file:
+      # 加载环境变量
+      - ./service.env
+    networks:
+      # 加入集群网络
+      - swarm_net
+    volumes:
+      # 将宿主机上的文件挂载到容器内
+      - type: "bind"
+        source: /etc/localtime
+        target: /etc/localtime
+    deploy:
+      # 实例数量
+      replicas: 1
+      # 更新选项
+      update_config:
+        # 每次更新多少个容器
+        parallelism: 1
+        # 间隔时间
+        delay: 10s
+      # 启动错误时，重新启动
+      restart_policy:
+        condition: on-failure
+      resources:
+        limits:
+          # CPU限制
+          cpus: '0.5'
+          # 内存限制
+          memory: 256M
+    # 健康检查，启动后，当这个命令执行没问题，才会任何这个服务启动成功
+    healthcheck:
+      # 命令
+      test: ["CMD", "curl", "-f", "http://localhost:9003/info"]
+      # 间隔时间，安装应用的预计启动时间来设置。比如我们这个springcloud的应用，一般在1分钟半内预计启动完成
+      interval: 1m30s
+      timeout: 10s
+      # 重试次数
+      retries: 5
+
+networks:
+  swarm_net:
+    external: true
+  

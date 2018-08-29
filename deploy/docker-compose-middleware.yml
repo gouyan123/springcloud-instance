@@ -1,0 +1,208 @@
+# docker-compose编排工具 部署中间件：
+# 中间件rabbitmq、gitlab、ElasticSearch、kibana、logstash、zipkin、registry私有仓库、kafka
+# compose版本
+version: "3.2"
+# 定义服务
+services:
+  # 0、安装rabbitmq。消息队列的中间件
+  rabbitmq:
+    # 镜像名称
+    image: rabbitmq:management
+    # 容器名称
+    container_name: rabbitmq
+    # 外部访问端口 映射到 容器端口
+    ports:
+      - "5671:5671"
+      - "5672:5672"
+      - "4369:4369"
+      - "25672:25672"
+      - "15671:15671"
+      - "15672:15672"
+    # 创建局域网， 加入同一局域网，各容器才能通信；
+    networks:
+      - swarm_net
+    # 集群参数  此处deploy忽略，我们以单机运行
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 1
+        delay: 10s
+      restart_policy:
+        condition: on-failure
+        # 重试三次
+        max_attempts: 3
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 256M
+  # 1、安装gitlab。  文件版本管理工具
+  # (如果同学自己机器上装很卡的话，使用oschina上的码云或者github来代替)
+  # 老师用这里就注释掉了，需要的自行开启，之前的课程有讲过
+  #gitlab:
+  #  image: gitlab/gitlab-ce:latest
+  #  container_name: gitlab
+  #  ports:
+  #    - "1443:443"
+  #    - "18080:80"
+  #  networks:
+  #    - swarm_net
+  #  deploy:
+  #    replicas: 1
+  #    update_config:
+  #      parallelism: 1
+  #      delay: 10s
+  #    restart_policy:
+  #      condition: on-failure
+  #      # 重试三次
+  #      max_attempts: 3
+  #    resources:
+  #      limits:
+  #        memory: 700M
+  # 2、安装es。       nosql类似mongodb，用来做检索引擎；
+  elasticsearch: 
+    image: elasticsearch
+    container_name: elasticsearch
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      - ES_JAVA_OPTS=-Xms128m -Xmx512m
+    networks:
+      - swarm_net
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 1
+        delay: 10s
+      restart_policy:
+        condition: on-failure
+        # 重试三次
+        max_attempts: 3
+      resources:
+        limits:
+          memory: 600M
+  # 3、安装kibana。   查询es数据的可视化工具
+  kibana:
+    image: kibana
+    container_name: kibana
+    ports:
+      - "5601:5601"
+    # 配置环境变量，其中elasticsearch为主机名称hostname；
+    environment:
+      - ELASTICSEARCH_URL=http://elasticsearch:9200
+    networks:
+      - swarm_net
+    # 在es启动后再运行这个服务
+    depends_on:
+      - elasticsearch
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 1
+        delay: 10s
+      restart_policy:
+        condition: on-failure
+        # 重试三次
+        max_attempts: 3
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 256M
+  # 4、安装logstash。 数据汇集的工具，比如：应用日志，logback直接输出到logstash的tcp通道，logstash在存储到es
+  logstash:
+    image: logstash
+    container_name: logstash
+    ports:
+      - "4560:4560"
+    command: logstash -e 'input { tcp { host => "0.0.0.0" port => "4560" mode => "server" codec => json_lines } } output { stdout{ codec => rubydebug } elasticsearch{ hosts => ["elasticsearch:9200"] index => "log4j-%{+YYYY.MM.dd}" document_type => "log4j_type" } }'
+    networks:
+      - swarm_net
+    depends_on:
+      - elasticsearch
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 1
+        delay: 10s
+      restart_policy:
+        condition: on-failure
+        # 重试三次
+        max_attempts: 3
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 600M
+  # 5、运行zipkin。   分布式调用链路追踪，可视化分析工具
+  zipkin:
+    image: openzipkin/zipkin
+    container_name: zipkin
+    ports:
+      - "9411:9411"
+    environment:
+      - ES_HOSTS=http://elasticsearch:9200
+      - STORAGE_TYPE=elasticsearch
+    networks:
+      - swarm_net
+    depends_on:
+      - elasticsearch
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 1
+        delay: 10s
+      restart_policy:
+        condition: on-failure
+        # 重试三次
+        max_attempts: 3
+      resources:
+        limits:
+          cpus: '1'
+          memory: 700M
+      
+  # 6、运行mysql
+  mysql:
+    image: mysql
+    container_name: mysql
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=12345678
+    networks:
+      - swarm_net
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 1
+        delay: 10s
+      restart_policy:
+        condition: on-failure
+        # 重试三次
+        max_attempts: 3
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 256M
+  # 7、运行私有仓库。  公共的存储镜像的地方
+  registry:
+    image: registry
+    container_name: registry
+    ports:
+      - "5000:5000"
+    networks:
+      - swarm_net
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 1
+        delay: 10s
+      restart_policy:
+        condition: on-failure
+        # 重试三次
+        max_attempts: 3
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 256M
+networks:
+  swarm_net:
+    external: true

@@ -1,0 +1,906 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a5e424af-d5f2-412b-822d-c65c0afd6120" name="Default" comment="" />
+    <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <ignored path="$PROJECT_DIR$/eureka-server/target/" />
+    <ignored path="$PROJECT_DIR$/config-server/target/" />
+    <ignored path="$PROJECT_DIR$/service-center/target/" />
+    <ignored path="$PROJECT_DIR$/service-center/wms-service/target/" />
+    <ignored path="$PROJECT_DIR$/service-center/sms-service/target/" />
+    <ignored path="$PROJECT_DIR$/service-center/service-core/target/" />
+    <ignored path="$PROJECT_DIR$/service-center/mail-service/target/" />
+    <ignored path="$PROJECT_DIR$/service-center/order-service/target/" />
+    <ignored path="$PROJECT_DIR$/uaa-interface/target/" />
+    <ignored path="$PROJECT_DIR$/zuul-server/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="docker compose单机运行多服务.txt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/note/docker compose单机运行多服务.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-220">
+              <caret line="20" selection-start-line="20" selection-end-line="20" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/eureka-server/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2911">
+              <caret line="71" column="56" selection-start-line="71" selection-start-column="56" selection-end-line="71" selection-end-column="56" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="docker swarm集群部署.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/note/docker swarm集群部署.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="205">
+              <caret line="5" column="31" selection-start-line="5" selection-end-line="5" selection-end-column="76" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>jdbc:mysql://127.0.0.1</find>
+      <find>mysql</find>
+      <find>header</find>
+      <find>jpa</find>
+      <find>8765</find>
+      <find>logstashHost</find>
+      <find>127.0.0.1:3306</find>
+      <find>root</find>
+      <find>123456</find>
+      <find>172.17.1.242:3306</find>
+      <find>write</find>
+      <find>root123</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>jdbc:mysql://101.132.109.12</replace>
+      <replace>172.17.1.242:3306</replace>
+      <replace>write</replace>
+      <replace>write123</replace>
+      <replace>127.0.0.1:3306</replace>
+      <replace>root</replace>
+      <replace>123456</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GradleLocalSettings">
+    <option name="projectSyncType">
+      <map>
+        <entry key="$PROJECT_DIR$/../spring-framework-3.2.6.RELEASE" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../spring-framework-master" value="PREVIEW" />
+      </map>
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/eureka-server/src/main/java/com/dongnaoedu/springcloud/Main.java" />
+        <option value="$PROJECT_DIR$/eureka-server/src/main/docker/Dockerfile" />
+        <option value="$PROJECT_DIR$/deploy/docker-compose-common.yml" />
+        <option value="$PROJECT_DIR$/service-center/order-service/src/main/java/com/dongnaoedu/springcloud/order/client/WmsServiceClient.java" />
+        <option value="$PROJECT_DIR$/zuul-server/src/main/java/com/dongnaoedu/springcloud/zuul/AppConfig.java" />
+        <option value="$PROJECT_DIR$/uaa-interface/src/main/java/com/dongnaoedu/springcloud/uaa/web/TokenController.java" />
+        <option value="$PROJECT_DIR$/config-server/src/main/resources/bootstrap.yml" />
+        <option value="$PROJECT_DIR$/config-server/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/config-server/src/main/resources/configRepo/application.yml" />
+        <option value="$PROJECT_DIR$/service-center/order-service/src/main/java/com/dongnaoedu/springcloud/order/OrderController.java" />
+        <option value="$PROJECT_DIR$/service-center/wms-service/src/main/java/com/dongnaoedu/springcloud/wms/GoodsService.java" />
+        <option value="$PROJECT_DIR$/service-center/order-service/src/main/java/com/dongnaoedu/springcloud/order/OrderService.java" />
+        <option value="$PROJECT_DIR$/service-center/service-core/src/main/java/com/dongnaoedu/springcloud/sms/stream/SmsOutputChannel.java" />
+        <option value="$PROJECT_DIR$/service-center/order-service/src/main/java/com/dongnaoedu/springcloud/order/client/SmsServiceClient.java" />
+        <option value="$PROJECT_DIR$/eureka-server/src/main/java/com/dongnaoedu/springcloud/EurekaApp.java" />
+        <option value="$PROJECT_DIR$/note/spring-data-jpa mldn.txt" />
+        <option value="$PROJECT_DIR$/config-server/src/main/resources/configRepo/order-service.yml" />
+        <option value="$PROJECT_DIR$/config-server/src/main/resources/configRepo/sms-service.yml" />
+        <option value="$PROJECT_DIR$/config-server/src/main/resources/configRepo/wms-service.yml" />
+        <option value="$PROJECT_DIR$/eureka-server/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/config-server/src/main/resources/configRepo/uaa-interface.yml" />
+        <option value="$PROJECT_DIR$/config-server/src/main/resources/configRepo/mail-service.yml" />
+        <option value="$PROJECT_DIR$/note/springcloud实例.txt" />
+        <option value="$PROJECT_DIR$/note/docker compose单机部署.txt" />
+        <option value="$PROJECT_DIR$/deploy/docker-compose-middleware.yml" />
+        <option value="$PROJECT_DIR$/eureka-server/pom.xml" />
+        <option value="$PROJECT_DIR$/note/docker compose单机运行多服务.txt" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="F:/Program Files/apache-maven-3.3.9" />
+        <option name="userSettingsFile" value="F:\Program Files\apache-maven-3.3.9\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1040" />
+    <option name="height" value="744" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="springcloud-instance" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springcloud-instance" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springcloud-instance" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springcloud-instance" type="462c0819:PsiDirectoryNode" />
+              <item name="eureka-server" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springcloud-instance" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springcloud-instance" type="462c0819:PsiDirectoryNode" />
+              <item name="note" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springcloud-instance" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springcloud-instance" type="462c0819:PsiDirectoryNode" />
+              <item name="service-center" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springcloud-instance" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springcloud-instance" type="462c0819:PsiDirectoryNode" />
+              <item name="service-center" type="462c0819:PsiDirectoryNode" />
+              <item name="sms-service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springcloud-instance" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springcloud-instance" type="462c0819:PsiDirectoryNode" />
+              <item name="service-center" type="462c0819:PsiDirectoryNode" />
+              <item name="sms-service" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springcloud-instance" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springcloud-instance" type="462c0819:PsiDirectoryNode" />
+              <item name="service-center" type="462c0819:PsiDirectoryNode" />
+              <item name="sms-service" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springcloud-instance" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springcloud-instance" type="462c0819:PsiDirectoryNode" />
+              <item name="service-center" type="462c0819:PsiDirectoryNode" />
+              <item name="sms-service" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springcloud-instance" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springcloud-instance" type="462c0819:PsiDirectoryNode" />
+              <item name="zuul-server" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springcloud-instance" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springcloud-instance" type="462c0819:PsiDirectoryNode" />
+              <item name="zuul-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springcloud-instance" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springcloud-instance" type="462c0819:PsiDirectoryNode" />
+              <item name="zuul-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springcloud-instance" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springcloud-instance" type="462c0819:PsiDirectoryNode" />
+              <item name="zuul-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="AndroidView" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelOrder2" value="2" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RequestMappingsPanelWidth2" value="75" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="D:/company" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="settings.github" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\ideaproject\springcloud-instance\eureka-server\src\main\docker" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\ideaproject\springcloud-instance\note" />
+      <recent name="D:\ideaproject\springcloud-instance\images" />
+      <recent name="D:\ideaproject\springcloud-instance\eureka-server\src\main\docker" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.MailServiceApplication">
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="ConfigServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="config-server" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.dongnaoedu.springcloud.config.ConfigServerApplication" />
+    </configuration>
+    <configuration name="EurekaApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="eureka-server" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.dongnaoedu.springcloud.EurekaApp" />
+    </configuration>
+    <configuration name="MailServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="mail-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.dongnaoedu.springcloud.mail.MailServiceApplication" />
+    </configuration>
+    <configuration name="OrderServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="order-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.dongnaoedu.springcloud.order.OrderServiceApplication" />
+    </configuration>
+    <configuration name="SmsInterfaceApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="sms-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.dongnaoedu.springcloud.sms.SmsInterfaceApp" />
+    </configuration>
+    <configuration name="UAAApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="uaa-interface" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.dongnaoedu.springcloud.uaa.UAAApplication" />
+    </configuration>
+    <configuration name="WmsServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="wms-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.dongnaoedu.springcloud.wms.WmsServiceApplication" />
+    </configuration>
+    <configuration name="ZuulApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="zuul-server" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.dongnaoedu.springcloud.zuul.ZuulApplication" />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <properties />
+      <listeners />
+    </configuration>
+    <list>
+      <item itemvalue="Spring Boot.UAAApplication" />
+      <item itemvalue="Spring Boot.MailServiceApplication" />
+      <item itemvalue="Spring Boot.WmsServiceApplication" />
+      <item itemvalue="Spring Boot.SmsInterfaceApp" />
+      <item itemvalue="Spring Boot.EurekaApp" />
+      <item itemvalue="Spring Boot.ZuulApplication" />
+      <item itemvalue="Spring Boot.ConfigServerApplication" />
+      <item itemvalue="Spring Boot.OrderServiceApplication" />
+    </list>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a5e424af-d5f2-412b-822d-c65c0afd6120" name="Default" comment="" />
+      <created>1532875181502</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1532875181502</updated>
+      <workItem from="1532875183356" duration="10706000" />
+      <workItem from="1532913843630" duration="31850000" />
+      <workItem from="1533004805506" duration="7259000" />
+      <workItem from="1533099450293" duration="18093000" />
+      <workItem from="1533144258431" duration="890000" />
+      <workItem from="1533177417699" duration="1587000" />
+      <workItem from="1533435194559" duration="2668000" />
+      <workItem from="1533528360629" duration="1104000" />
+      <workItem from="1533628857603" duration="11975000" />
+      <workItem from="1533735746187" duration="4487000" />
+      <workItem from="1534920156678" duration="6954000" />
+      <workItem from="1535020544997" duration="8889000" />
+      <workItem from="1535072790540" duration="1389000" />
+      <workItem from="1535095398322" duration="798000" />
+      <workItem from="1535277160049" duration="10620000" />
+      <workItem from="1535334466542" duration="1645000" />
+      <workItem from="1535340891708" duration="125000" />
+      <workItem from="1535341977112" duration="1660000" />
+      <workItem from="1535351430119" duration="1277000" />
+      <workItem from="1535365203105" duration="7738000" />
+      <workItem from="1535417765295" duration="4539000" />
+      <workItem from="1535450725130" duration="3672000" />
+      <workItem from="1535506341428" duration="12934000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="154982000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
+    <layout>
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50107294" side_tool="true" weight="0.7433526" />
+      <window_info anchor="right" id="Maven Projects" order="3" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info id="Capture Tool" order="2" />
+      <window_info id="Designer" order="2" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="UI Designer" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info id="Image Layers" order="2" />
+      <window_info anchor="bottom" id="Java Enterprise" order="7" />
+      <window_info anchor="right" id="Capture Analysis" order="3" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.66549295" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.4471831" />
+      <window_info anchor="bottom" id="Spring" order="7" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.49892703" visible="true" weight="0.7429578" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.30364805" />
+      <window_info anchor="bottom" id="Problems" order="8" />
+      <window_info anchor="right" id="Bean Validation" order="3" />
+      <window_info id="Web" order="2" side_tool="true" />
+      <window_info anchor="right" id="Theme Preview" order="3" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.32933104" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/note/docker compose单机运行多服务.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="5" column="4" selection-start-line="5" selection-end-line="5" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/note/docker swarm集群部署.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="533">
+          <caret line="13" selection-start-line="12" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/note/docker compose单机运行多服务.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="8" column="170" lean-forward="true" selection-start-line="8" selection-end-line="8" selection-end-column="170" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/note/docker swarm集群部署.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="533">
+          <caret line="13" lean-forward="true" selection-start-line="12" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service-center/service-core/src/main/java/com/dongnaoedu/springcloud/sms/stream/SmsOutputChannel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" selection-start-line="6" selection-end-line="10" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service-center/service-core/src/main/java/com/dongnaoedu/springcloud/sms/stream/SmsChannel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="4" selection-start-line="4" selection-end-line="7" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service-center/order-service/src/main/java/com/dongnaoedu/springcloud/order/client/SmsServiceClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="25" column="83" selection-start-line="25" selection-start-column="83" selection-end-line="25" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service-center/sms-service/src/main/java/com/dongnaoedu/springcloud/sms/listener/SmsMqListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="65">
+          <caret line="14" selection-start-line="14" selection-end-line="26" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uaa-interface/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="74" column="52" selection-start-line="74" selection-start-column="49" selection-end-line="74" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service-center/sms-service/src/main/java/com/dongnaoedu/springcloud/sms/SmsInterfaceApp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="57" lean-forward="true" selection-start-line="16" selection-end-line="16" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service-center/order-service/src/main/java/com/dongnaoedu/springcloud/order/OrderServiceApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="25" column="71" lean-forward="true" selection-start-line="25" selection-end-line="25" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-19">
+          <caret line="834" column="33" lean-forward="true" selection-start-line="834" selection-start-column="33" selection-end-line="834" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/note/spring-data-jpa mldn.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="13" column="82" selection-start-line="13" selection-start-column="82" selection-end-line="13" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config-server/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="56" column="51" lean-forward="true" selection-start-line="56" selection-start-column="24" selection-end-line="56" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service-center/service-core/src/main/java/com/dongnaoedu/springcloud/wms/domains/GoodsDomain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service-center/service-core/src/main/java/com/dongnaoedu/springcloud/stream/converter/FastJsonMessageConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="16" column="37" lean-forward="true" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config-server/src/main/resources/configRepo/wms-service.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="4" column="41" selection-start-line="4" selection-start-column="41" selection-end-line="4" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uaa-interface/src/main/java/com/dongnaoedu/springcloud/uaa/db/UserRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="7" column="4" lean-forward="true" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config-server/src/main/resources/configRepo/order-service.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="4" column="31" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service-center/order-service/src/main/java/com/dongnaoedu/springcloud/order/OrderController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1248">
+          <caret line="46" column="23" selection-start-line="46" selection-start-column="23" selection-end-line="46" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service-center/order-service/src/main/java/com/dongnaoedu/springcloud/order/OrderService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1092">
+          <caret line="48" column="16" selection-start-line="48" selection-start-column="16" selection-end-line="48" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zuul-server/src/main/java/com/dongnaoedu/springcloud/zuul/AppConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="9" column="7" lean-forward="true" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config-server/src/main/java/com/dongnaoedu/springcloud/config/ConfigServerApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/gouyan/AppTest.java" />
+    <entry file="file://$PROJECT_DIR$/zuul-server/src/main/java/com/dongnaoedu/springcloud/zuul/filters/SendErrorRestFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56">
+          <caret line="23" column="15" selection-start-line="23" selection-start-column="15" selection-end-line="23" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service-center/service-core/src/main/java/com/dongnaoedu/springcloud/order/domains/OrderDomain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service-center/service-core/src/main/java/com/dongnaoedu/springcloud/mail/domains/MailDomain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="429">
+          <caret line="17" column="23" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service-center/service-core/src/main/java/com/dongnaoedu/springcloud/order/events/OrderCancelEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service-center/service-core/src/main/java/com/dongnaoedu/springcloud/order/events/OrderCreateEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eureka-server/src/main/java/com/dongnaoedu/springcloud/EurekaApp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eureka-server/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1085">
+          <caret line="53" column="3" selection-start-line="53" selection-start-column="3" selection-end-line="53" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eureka-server/src/main/resources/logback-spring.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="533">
+          <caret line="13" column="28" lean-forward="true" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config-server/src/main/resources/configRepo/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1148">
+          <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config-server/src/main/resources/configRepo/sms-service.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="123">
+          <caret line="3" column="97" lean-forward="true" selection-start-line="3" selection-start-column="44" selection-end-line="3" selection-end-column="97" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uaa-interface/src/main/java/com/dongnaoedu/springcloud/uaa/db/UserDomain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="11" column="22" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uaa-interface/src/main/java/com/dongnaoedu/springcloud/uaa/UAAApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config-server/src/main/resources/configRepo/mail-service.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="4" column="36" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config-server/src/main/resources/configRepo/zuul-server.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3198">
+          <caret line="78" column="8" selection-start-line="78" selection-start-column="8" selection-end-line="78" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config-server/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="77">
+          <caret line="13" column="11" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config-server/src/main/resources/configRepo/uaa-interface.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="4" column="31" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zuul-server/src/main/java/com/dongnaoedu/springcloud/zuul/ZuulApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="20" column="25" lean-forward="true" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uaa-interface/src/main/resources/bootstrap.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-615" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/note/springcloud实例.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="185" column="199" selection-start-line="185" selection-start-column="71" selection-end-line="185" selection-end-column="199" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy/docker-compose-middleware.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7503">
+          <caret line="183" column="22" selection-start-line="183" selection-start-column="22" selection-end-line="183" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zuul-server/src/main/resources/bootstrap.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="820">
+          <caret line="20" column="6" selection-start-line="20" selection-start-column="6" selection-end-line="24" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service-center/order-service/src/main/resources/bootstrap.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-350">
+          <caret line="8" column="11" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config-server/src/main/resources/bootstrap.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="101">
+          <caret line="10" column="48" selection-start-line="9" selection-start-column="6" selection-end-line="10" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service-center/mail-service/src/main/resources/bootstrap.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-678" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eureka-server/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2911">
+          <caret line="71" column="56" selection-start-line="71" selection-start-column="56" selection-end-line="71" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/note/docker swarm集群部署.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="5" column="31" selection-start-line="5" selection-end-line="5" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/note/docker compose单机运行多服务.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-220">
+          <caret line="20" selection-start-line="20" selection-end-line="20" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Spring</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>eureka-server</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: antlr:antlr:2.7.7</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

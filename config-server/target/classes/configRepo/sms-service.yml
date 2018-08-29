@@ -1,0 +1,39 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: 123456
+  jpa:
+    properties:
+      hibernate:
+        hbm2ddl:
+          # 自动创建表
+          auto: update
+  cloud:
+    # stream相关配置
+    stream:
+      default:
+        # 消息内容序列化格式
+        contentType: application/json
+      # 通道设置
+      bindings:
+        # 短信通道相关配置
+        sms-send:
+          # 绑定具体的mq实现
+          binder: mq1
+          destination: sms-send
+          group: sms-send       # 确保幂等，防止消费者重复操作
+          contentType: application/json
+      # 具体接入的mq实现 
+      binders:
+        # 命名为mq1，使用rabbitmq
+        mq1:
+          type: rabbit
+          environment:
+            spring:
+              rabbitmq:
+                host: 47.100.49.95
+                port: 5672
+                username: gouyan
+                password: 123456
