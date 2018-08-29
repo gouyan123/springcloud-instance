@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a5e424af-d5f2-412b-822d-c65c0afd6120" name="Default" comment="" />
+    <list default="true" id="a5e424af-d5f2-412b-822d-c65c0afd6120" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/note/docker compose单机运行多服务.txt" beforeDir="false" afterPath="$PROJECT_DIR$/note/docker compose单机运行多服务.txt" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/eureka-server/target/" />
@@ -29,26 +31,8 @@
       <file leaf-file-name="docker compose单机运行多服务.txt" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/note/docker compose单机运行多服务.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-220">
-              <caret line="20" selection-start-line="20" selection-end-line="20" selection-end-column="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/eureka-server/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2911">
-              <caret line="71" column="56" selection-start-line="71" selection-start-column="56" selection-end-line="71" selection-end-column="56" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="docker swarm集群部署.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/note/docker swarm集群部署.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="205">
-              <caret line="5" column="31" selection-start-line="5" selection-end-line="5" selection-end-column="76" />
+            <state relative-caret-position="656">
+              <caret line="58" column="31" selection-start-line="58" selection-start-column="31" selection-end-line="58" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -88,6 +72,7 @@
     </replaceStrings>
   </component>
   <component name="Git.Settings">
+    <option name="UPDATE_TYPE" value="MERGE" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GradleLocalSettings">
@@ -178,6 +163,32 @@
             <path>
               <item name="springcloud-instance" type="b2602c69:ProjectViewProjectNode" />
               <item name="springcloud-instance" type="462c0819:PsiDirectoryNode" />
+              <item name="config-server" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springcloud-instance" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springcloud-instance" type="462c0819:PsiDirectoryNode" />
+              <item name="config-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springcloud-instance" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springcloud-instance" type="462c0819:PsiDirectoryNode" />
+              <item name="config-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springcloud-instance" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springcloud-instance" type="462c0819:PsiDirectoryNode" />
+              <item name="config-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springcloud-instance" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springcloud-instance" type="462c0819:PsiDirectoryNode" />
               <item name="eureka-server" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -189,6 +200,36 @@
               <item name="springcloud-instance" type="b2602c69:ProjectViewProjectNode" />
               <item name="springcloud-instance" type="462c0819:PsiDirectoryNode" />
               <item name="service-center" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springcloud-instance" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springcloud-instance" type="462c0819:PsiDirectoryNode" />
+              <item name="service-center" type="462c0819:PsiDirectoryNode" />
+              <item name="order-service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springcloud-instance" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springcloud-instance" type="462c0819:PsiDirectoryNode" />
+              <item name="service-center" type="462c0819:PsiDirectoryNode" />
+              <item name="order-service" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springcloud-instance" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springcloud-instance" type="462c0819:PsiDirectoryNode" />
+              <item name="service-center" type="462c0819:PsiDirectoryNode" />
+              <item name="order-service" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springcloud-instance" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springcloud-instance" type="462c0819:PsiDirectoryNode" />
+              <item name="service-center" type="462c0819:PsiDirectoryNode" />
+              <item name="order-service" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="springcloud-instance" type="b2602c69:ProjectViewProjectNode" />
@@ -264,7 +305,7 @@
     <property name="RequestMappingsPanelWidth2" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="D:/company" />
+    <property name="last_opened_file_path" value="E:/dongnaoedu/023-应用框架-springcloud综合实例讲解（二）-20170921-tony/程序/springcloud-gogo" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -414,18 +455,19 @@
       <workItem from="1535365203105" duration="7738000" />
       <workItem from="1535417765295" duration="4539000" />
       <workItem from="1535450725130" duration="3672000" />
-      <workItem from="1535506341428" duration="13240000" />
+      <workItem from="1535506341428" duration="16700000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="155288000" />
+    <option name="totallyTimeSpent" value="158748000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50107294" side_tool="true" weight="0.7433526" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50160944" side_tool="true" weight="0.7429578" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info id="Capture Tool" order="2" />
@@ -443,8 +485,8 @@
       <window_info anchor="bottom" id="Run" order="2" weight="0.66549295" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.4471831" />
       <window_info anchor="bottom" id="Spring" order="7" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.49892703" visible="true" weight="0.7429578" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.30364805" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49839056" weight="0.7429578" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.30364805" />
       <window_info anchor="bottom" id="Problems" order="8" />
       <window_info anchor="right" id="Bean Validation" order="3" />
       <window_info id="Web" order="2" side_tool="true" />
@@ -467,13 +509,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/note/docker compose单机运行多服务.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="5" column="4" selection-start-line="5" selection-end-line="5" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/note/docker swarm集群部署.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="533">
@@ -774,20 +809,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/service-center/order-service/src/main/resources/bootstrap.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-350">
-          <caret line="8" column="11" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config-server/src/main/resources/bootstrap.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="101">
-          <caret line="10" column="48" selection-start-line="9" selection-start-column="6" selection-end-line="10" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/service-center/mail-service/src/main/resources/bootstrap.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-678" />
@@ -807,10 +828,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/config-server/src/main/resources/bootstrap.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="492">
+          <caret line="18" column="62" lean-forward="true" selection-start-line="18" selection-start-column="62" selection-end-line="18" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service-center/order-service/src/main/resources/bootstrap.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-41">
+          <caret line="8" column="11" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service-center/order-service/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/note/docker compose单机运行多服务.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-220">
-          <caret line="20" selection-start-line="20" selection-end-line="20" selection-end-column="38" />
+        <state relative-caret-position="656">
+          <caret line="58" column="31" selection-start-line="58" selection-start-column="31" selection-end-line="58" selection-end-column="31" />
         </state>
       </provider>
     </entry>
