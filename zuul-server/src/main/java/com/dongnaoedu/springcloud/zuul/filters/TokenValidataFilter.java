@@ -24,7 +24,7 @@ import io.jsonwebtoken.Claims;
 public class TokenValidataFilter extends ZuulFilter {
 	protected static final Logger logger = LoggerFactory.getLogger(TokenValidataFilter.class);
 
-	// token工具
+	// jwt：json web token，就是生成token的一种方式；
 	JwtTokenProvider jwtTokenProvider;
 	// 自定义的配置
 	TonyConfigurationBean tonyConfigurationBean;
@@ -53,8 +53,7 @@ public class TokenValidataFilter extends ZuulFilter {
 			forbidden();
 			return null;
 		}
-		// 检验token是否正确
-		// 这里只是通过使用key对token进行解码是否成功，并没有对有效期、已经token里面的内容进行校验。
+		// 检验token是否正确，这里只是通过使用key对token进行解码是否成功，并没有对有效期、以及token里面的内容进行校验。
 		Claims claims = jwtTokenProvider.parseToken(token);
 		if (claims == null) {
 			forbidden();	
@@ -62,10 +61,10 @@ public class TokenValidataFilter extends ZuulFilter {
 		}
 		// 可以将token内容输出出来看看
 		logger.debug("当前请求的token内容是：{}", JSONObject.toJSONString(claims));
-		// 塞到请求头里面  
+		// 塞到请求头里面，OrderController类的add(@RequestHeader(name="phone") String phone,@RequestHeader(name="email") String email)会取这 2个变量；
+		// jwt相关配置在 application.yml中：token.jwt.key = 123456，这个key自己定义；
 		ctx.getZuulRequestHeaders().put("phone",claims.get("phone").toString());
 		ctx.getZuulRequestHeaders().put("email",claims.get("email").toString());
-		
 		return null;
 	}
 

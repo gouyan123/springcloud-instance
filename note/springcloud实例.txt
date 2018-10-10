@@ -145,8 +145,27 @@ sms-service，邮件系统mail-service来通知客户，service-core定义各系
 
 index.html里面发送 http请求，请求网关，是一个跨域的请求，怎么做的呢？
 zuul-server里面有一个跨域的处理 AppConfig.java，利用cors解决，cors就是利用filter处理头部信息；
-zuul-server健全：看 zuul流程图.png，定义各种filter类，TokenValidataFilter中shouldFilter()方法
-过滤掉不需要tocken验证的请求，根据 zuul-server.yml自定义配置 tony；
+zuul-server验权：定义TokenValidataFilter类继承ZuulFilter，实现shouldFilter()方法，run()方法，filterType()方法，filterOrder()方法，具体如下：
+@Override
+public String filterType() {
+    // pre表示 根据路由请求真正服务之前 会执行这个filter
+    return "pre";
+}
+@Override
+public int filterOrder() {
+    // 这个是执行顺序，因为同一个类型的filter可能有多个。 值越小越靠前
+    return 6;
+}
+@Override
+//判断token验证这个filter是否需要执行；例如，获取token的请求不需要验证token，因此不用执行这个filter，需要维护一个列表，告诉我哪些请求不需要执行这个filter校验
+//可以配置在配置文件中，如下 ---tony：---，
+public boolean shouldFilter() {
+    RequestContext ctx = RequestContext.getCurrentContext();
+    // 根据routeId，过滤掉不需要做权限校验的请求
+    return !tonyConfigurationBean.getNoAuthenticationRoutes().contains(ctx.get("proxy"));
+}
+---
+tony：过滤掉不需要tocken验证的请求，根据 zuul-server.yml自定义配置 tony；
 tony:
   zuul:
     # 是否开启默认fallback
@@ -154,14 +173,107 @@ tony:
       enable: false
     tokenFilter:
       noAuthenticationRoutes:
-        - uaa-token
-@ConfigurationProperties("tony.zuul.tokenFilter")
+        - uaa-token # -代表list集合
+# 通过配置文件配置的静态路由
+  routes:
+    uaa-token:                      # 指定了一个路由，Id为uaa-token，在做验权的时候需要用到
+      path: /token/byPhone          # 指定这个路径会匹配到这个路由，这个路径执行 验证token的filter，因此不会被拦截；
+      serviceId: uaa-interface      # 这里表示，这个路由的实例信息，是通过ribbon负载均衡器进行获取的，值就是对应服务名
+---
+那么怎么读取这些自定义配置呢？通过springboot的AutoConfig，因此创建 TonyConfigurationBean类，代码如下，这个类读取上面# 通过配置文件配置的静态路由 的配置信息：
+@Component
+@ConfigurationProperties("tony.zuul.tokenFilter") // spring会将对应配置项的值注入进来
 public class TonyConfigurationBean {
 	// 这个列表存的是routeId。这个列表里面的路由，不需要进行token校验，在TokenValidataFilter中会用到
 	private List<String> noAuthenticationRoutes;
+	public List<String> getNoAuthenticationRoutes() {
+		return noAuthenticationRoutes;
+	}
+	public void setNoAuthenticationRoutes(List<String> noAuthenticationRoutes) {
+		this.noAuthenticationRoutes = noAuthenticationRoutes;
+	}
 }
-将配置文件中 tony.zuul.tokenFilter的值 noAuthenticationRoutes注入给 这个类的成员变量
+// 如果判断要执行这个filter，那么 run()方法执行这个 filter；
+@Override
+public Object run() {
+    // zuul中，将当前请求的上下文信息存在线程变量中。取出来
+    RequestContext ctx = RequestContext.getCurrentContext();
+    // 从上下文中获取httprequest对象
+    HttpServletRequest request = ctx.getRequest();
+    // 从头部信息中获取Authentication的值，也就是我们的token
+    String token = request.getHeader("Authorization");
+    if(token == null) {
+        forbidden();    // 设置 403响应
+        return null;
+    }
+    // 检验token是否正确
+    // 这里只是通过使用key对token进行解码是否成功，并没有对有效期、已经token里面的内容进行校验。
+    Claims claims = jwtTokenProvider.parseToken(token);
+    if (claims == null) {
+        forbidden();
+        return null;
+    }
+    // 可以将token内容输出出来看看
+    logger.debug("当前请求的token内容是：{}", JSONObject.toJSONString(claims));
+    // 塞到请求头里面，OrderController类的add(@RequestHeader(name="phone") String phone,@RequestHeader(name="email") String email)会取这 2个变量；
+    // jwt相关配置在 application.yml中：token.jwt.key = 123456，这个key自己定义；
+    ctx.getZuulRequestHeaders().put("phone",claims.get("phone").toString());
+    ctx.getZuulRequestHeaders().put("email",claims.get("email").toString());
 
+    return null;
+}
+当发送异常时，调用自定义异常处理类 SendErrorRestFilter继承ZuulFilter，后面的filter将不会再继续执行，代码如下：
+// 默认springcloud有一个errorfilter，会重定向到一个/error的路径
+// 如果要是自定义的errorfilter生效，关掉springcloud提供的这个errorfilter即可。
+@Component
+public class SendErrorRestFilter extends SendErrorFilter {
+	protected static final Logger logger = LoggerFactory.getLogger(SendErrorRestFilter.class);
+
+	@Override
+	public boolean shouldFilter() {
+		return true;
+	}
+
+	@Override
+	public Object run() {
+		RequestContext context = RequestContext.getCurrentContext();
+		// 捕获异常，并转换成json格式；
+		Throwable throwable = findCauseException(context.getThrowable());
+		// 获取response状态码
+		String status = String.valueOf(context.getResponseStatusCode());
+		// 转成json格式输出
+		JSONObject jsonObject = new JSONObject();
+		jsonObject.put("code", "异常码" + status);
+		jsonObject.put("errorMessage", throwable.getMessage());
+
+		// 记录日志
+		logger.warn("zuul后台有个异常", context.getThrowable());
+		// 放进响应body里面
+		context.setResponseBody(jsonObject.toJSONString());
+		context.getResponse().setContentType("text/html;charset=UTF-8");
+		// 处理了异常以后，就清空
+		context.remove("throwable");
+		return null;
+	}
+
+	@Override
+	public String filterType() {
+		return "error";
+	}
+
+	@Override
+	public int filterOrder() {
+		return 0;
+	}
+
+	// 找出最初始的异常
+	Throwable findCauseException(Throwable throwable) {
+		while (throwable.getCause() != null) {
+			throwable = throwable.getCause();
+		}
+		return throwable;
+	}
+}
 zuul-server配置文件将/tocken/byPhone路由到 uaa-interface用户中心，进入该系统 TokenController类的
 @PostMapping("/token/byPhone")  @Repository
 getTokenByPhone()方法，里面调用了  UserRepository接口，这是spring data jpa写的，验证成功，利用jwt

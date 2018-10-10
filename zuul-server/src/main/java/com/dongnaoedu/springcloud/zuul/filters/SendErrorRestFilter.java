@@ -57,5 +57,4 @@ public class SendErrorRestFilter extends SendErrorFilter {
 		}
 		return throwable;
 	}
-
 }
