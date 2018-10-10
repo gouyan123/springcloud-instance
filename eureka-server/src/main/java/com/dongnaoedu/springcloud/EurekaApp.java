@@ -11,7 +11,6 @@ import org.springframework.context.ConfigurableApplicationContext;
 @EnableEurekaServer
 public class EurekaApp{
 	final static Logger logger = LoggerFactory.getLogger(EurekaApp.class);
-
 	public static void main(String[] args) {
 		ConfigurableApplicationContext applicationContext = new SpringApplicationBuilder(EurekaApp.class).web(true)
 				.run(args);
