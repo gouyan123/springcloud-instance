@@ -272,6 +272,7 @@ zuul-server配置文件将/token/byPhone路由到 uaa-interface用户中心，�
 getTokenByPhone()方法，里面调用了  UserRepository接口，这是spring data jpa写的，验证成功，利用jwt
 创建tocken，jwtTokenProvider.createToken(parseClaims(domain)))并返回；
 ---
+zuul网关使用说明：
 获取token：
 发post请求 http://127.0.0.1:8765/api/token/byPhone ，json数据为{"phone":"10086","password":"123"}，该url请求的是 网关zuul，要先执行 pre类型的filter，
 pre类型filter有多个，按顺序执行，每个filter有 2个主要方法，shouldFilter()方法判断这个filter是否执行，run()方法执行这个filter，此处自定义了一个pre类型filter
@@ -281,9 +282,10 @@ TokenValidataFilter类的shouldFilter()方法肯定会执行，代码如下：
 @Override
 public boolean shouldFilter() {
     RequestContext ctx = RequestContext.getCurrentContext();
-    // ctx.get("proxy")表示 routeId即路由url对应的路由id；tonyConfigurationBean是对zuul-server.yml中 tony.zuul.tokenFilter下配置内容的加载封装；
+    // ctx.get("proxy")表示 routeId即网关url对应的路由id；tonyConfigurationBean是对zuul-server.yml中 tony.zuul.tokenFilter下配置内容的加载封装，表示不需要执行该filter的路由集合；
     return !tonyConfigurationBean.getNoAuthenticationRoutes().contains(ctx.get("proxy"));
 }
+此处ctx.get("proxy")返回 uaa-token
 ctx.get("proxy")表示路由url对应的routeId，tonyConfigurationBean加载zuul-server.yml中 tony.zuul.tokenFilter '下' 的自定义配置 到列表中，
 getNoAuthenticationRoutes()表示获取tony.zuul.tokenFilter'下' 的自定义配置，此处 tony.zuul.tokenFilter '下'定义的是 tony.zuul.tokenFilter.uaa-token
 整体表示 如果自定义列表中包含 当前请求路由url对应的routeId，对于这个 路由就不执行这个filter；routeId，网关url，真正服务url 解释如下：
@@ -305,7 +307,47 @@ public ResponseEntity<?> getTokenByPhone(@RequestBody UserDomain userDomain) {  
     }
     return ResponseEntity.ok(new JWTToken(jwtTokenProvider.createToken(parseClaims(domain))));
 }
-
+至此，获取token结束；
+---
+不在免过滤列表里面的网关请求，都要执行 TokenValidataFilter，因此需要将token添加到请求头里，以订单服务为例，请求如下：
+发送get请求 http://127.0.0.1:8765/api/order-service/order/orders，headers:{"Authorization" : token}
+先执行 pre类型的filter，pre类型的filter有多个，按顺序执行，@Override public int filterOrder() {return 6;// 这个是执行顺序，因为同一个类型的filter可能有多个。 值越小越靠前}
+每个filter中有 2个主要方法，shouldFilter()方法判断这个filter是否执行，run()方法执行这个filter，框架还自定义了几个pre类型filter，在TokenValidataFilter之前
+执行，主要进行路由定位，即根据网关url找到真正任务url，然后给 route类型filter发起请求；
+TokenValidataFilter类的shouldFilter()方法肯定会执行，代码如下：
+@Override
+public boolean shouldFilter() {
+    RequestContext ctx = RequestContext.getCurrentContext();
+    // ctx.get("proxy")表示 routeId即网关url对应的路由id；tonyConfigurationBean是对zuul-server.yml中 tony.zuul.tokenFilter下配置内容的加载封装，表示不需要执行该filter的路由集合；
+    return !tonyConfigurationBean.getNoAuthenticationRoutes().contains(ctx.get("proxy"));
+}
+此处ctx.get("proxy")返回 order-service，不在tonyConfigurationBean.getNoAuthenticationRoutes()集合中，因此需要执行这个filter，即需要执行run()方法；
+@Override
+public Object run() {
+    RequestContext ctx = RequestContext.getCurrentContext();    // zuul中，将当前请求的上下文信息存在线程变量中，取出来
+    HttpServletRequest request = ctx.getRequest();  // 从上下文中获取httprequest对象
+    String token = request.getHeader("Authorization");  // 从头部信息中获取Authentication的值，也就是我们的token
+    if(token == null) {
+        forbidden();
+        return null;
+    }
+    Claims claims = jwtTokenProvider.parseToken(token); // 检验token是否正确，这里只是通过使用key对token进行解码是否成功，并没有对有效期、以及token里面的内容进行校验。
+    if (claims == null) {
+        forbidden();
+        return null;
+    }
+    logger.debug("当前请求的token内容是：{}", JSONObject.toJSONString(claims));  // 可以将token内容输出出来看看
+    // 塞到请求头里面，OrderController类的orders(@RequestHeader(name="phone") String phone)会取这个变量；
+    // jwt相关配置在 application.yml中：token.jwt.key = 123456，这个key自己定义；
+    ctx.getZuulRequestHeaders().put("phone",claims.get("phone").toString());
+    ctx.getZuulRequestHeaders().put("email",claims.get("email").toString());
+    return null;
+}
+执行完 pre类型filter，执行 route类型filter，由网关url获得真正服务url，然后对真正服务url发起请求，此处请求的是 order-service服务的 /order/orders接口，方法如下：
+@RequestMapping("/orders")
+public List<OrderDomain> orders(@RequestHeader(name = "phone") String phone) {
+    return orderRepository.findByPhone(phone);  // 根据手机号码查订单
+}
 网关zuul结束；
 -------------------springcloud-instance代码开发-------------------------------------------
 通过 index.html实现前后端分离，springcloud使用docker部署，使用portainer工具进行动态扩容；将开发的项目
