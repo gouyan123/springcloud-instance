@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a5e424af-d5f2-412b-822d-c65c0afd6120" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config-server/src/main/resources/configRepo/zuul-server.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/src/main/resources/configRepo/zuul-server.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config-server/target/classes/configRepo/zuul-server.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/target/classes/configRepo/zuul-server.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/note/springcloud实例.txt" beforeDir="false" afterPath="$PROJECT_DIR$/note/springcloud实例.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uaa-interface/src/main/java/com/dongnaoedu/springcloud/uaa/web/JWTToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/uaa-interface/src/main/java/com/dongnaoedu/springcloud/uaa/web/JWTToken.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zuul-server/src/main/java/com/dongnaoedu/springcloud/zuul/filters/TokenValidataFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/zuul-server/src/main/java/com/dongnaoedu/springcloud/zuul/filters/TokenValidataFilter.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -28,20 +33,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="springcloud实例.txt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="springcloud实例.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/note/springcloud实例.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="411">
-              <caret line="145" column="40" lean-forward="true" selection-start-line="145" selection-start-column="40" selection-end-line="145" selection-end-column="40" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SendErrorRestFilter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/zuul-server/src/main/java/com/dongnaoedu/springcloud/zuul/filters/SendErrorRestFilter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
-              <caret line="10" selection-start-line="10" selection-end-line="59" selection-end-column="1" />
+            <state relative-caret-position="493">
+              <caret line="275" column="90" lean-forward="true" selection-start-line="275" selection-start-column="56" selection-end-line="275" selection-end-column="90" />
             </state>
           </provider>
         </entry>
@@ -49,8 +45,26 @@
       <file leaf-file-name="zuul-server.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config-server/src/main/resources/configRepo/zuul-server.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="24" selection-start-line="24" selection-end-line="31" selection-end-column="30" />
+            <state relative-caret-position="2583">
+              <caret line="78" column="51" selection-start-line="78" selection-start-column="51" selection-end-line="78" selection-end-column="51" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TokenController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/uaa-interface/src/main/java/com/dongnaoedu/springcloud/uaa/web/TokenController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="41">
+              <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TokenValidataFilter.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/zuul-server/src/main/java/com/dongnaoedu/springcloud/zuul/filters/TokenValidataFilter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="604">
+              <caret line="49" selection-start-line="49" selection-end-line="49" />
             </state>
           </provider>
         </entry>
@@ -58,17 +72,30 @@
       <file leaf-file-name="TonyConfigurationBean.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/zuul-server/src/main/java/com/dongnaoedu/springcloud/zuul/TonyConfigurationBean.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="64">
-              <caret line="7" selection-start-line="7" selection-end-line="19" selection-end-column="1" />
+            <state relative-caret-position="206">
+              <caret line="9" column="47" lean-forward="true" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="47" />
+              <folding>
+                <element signature="e#476#477#0" expanded="true" />
+                <element signature="e#512#513#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TokenValidataFilter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/zuul-server/src/main/java/com/dongnaoedu/springcloud/zuul/filters/TokenValidataFilter.java">
+      <file leaf-file-name="JwtConfiguration.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/uaa-interface/src/main/java/com/dongnaoedu/springcloud/uaa/jwt/JwtConfiguration.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
-              <caret line="63" column="8" lean-forward="true" selection-start-line="63" selection-start-column="8" selection-end-line="64" selection-end-column="70" />
+            <state relative-caret-position="287">
+              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JwtTokenProvider.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/uaa-interface/src/main/java/com/dongnaoedu/springcloud/uaa/jwt/JwtTokenProvider.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="41">
+              <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -96,6 +123,7 @@
       <find>172.17.1.242:3306</find>
       <find>write</find>
       <find>root123</find>
+      <find>/token/byPhone</find>
     </findStrings>
     <replaceStrings>
       <replace>jdbc:mysql://101.132.109.12</replace>
@@ -151,8 +179,10 @@
         <option value="$PROJECT_DIR$/note/docker compose单机运行多服务.txt" />
         <option value="$PROJECT_DIR$/zuul-server/pom.xml" />
         <option value="$PROJECT_DIR$/zuul-server/src/main/java/com/dongnaoedu/springcloud/zuul/TonyConfigurationBean.java" />
-        <option value="$PROJECT_DIR$/zuul-server/src/main/java/com/dongnaoedu/springcloud/zuul/filters/TokenValidataFilter.java" />
+        <option value="$PROJECT_DIR$/uaa-interface/src/main/java/com/dongnaoedu/springcloud/uaa/web/JWTToken.java" />
         <option value="$PROJECT_DIR$/note/springcloud实例.txt" />
+        <option value="$PROJECT_DIR$/config-server/src/main/resources/configRepo/zuul-server.yml" />
+        <option value="$PROJECT_DIR$/zuul-server/src/main/java/com/dongnaoedu/springcloud/zuul/filters/TokenValidataFilter.java" />
       </list>
     </option>
   </component>
@@ -202,144 +232,7 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="springcloud-instance" type="b2602c69:ProjectViewProjectNode" />
-              <item name="springcloud-instance" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="springcloud-instance" type="b2602c69:ProjectViewProjectNode" />
-              <item name="springcloud-instance" type="462c0819:PsiDirectoryNode" />
-              <item name="config-server" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="springcloud-instance" type="b2602c69:ProjectViewProjectNode" />
-              <item name="springcloud-instance" type="462c0819:PsiDirectoryNode" />
-              <item name="config-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="springcloud-instance" type="b2602c69:ProjectViewProjectNode" />
-              <item name="springcloud-instance" type="462c0819:PsiDirectoryNode" />
-              <item name="config-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="springcloud-instance" type="b2602c69:ProjectViewProjectNode" />
-              <item name="springcloud-instance" type="462c0819:PsiDirectoryNode" />
-              <item name="config-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="docker" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="springcloud-instance" type="b2602c69:ProjectViewProjectNode" />
-              <item name="springcloud-instance" type="462c0819:PsiDirectoryNode" />
-              <item name="config-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="springcloud-instance" type="b2602c69:ProjectViewProjectNode" />
-              <item name="springcloud-instance" type="462c0819:PsiDirectoryNode" />
-              <item name="config-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="configRepo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="springcloud-instance" type="b2602c69:ProjectViewProjectNode" />
-              <item name="springcloud-instance" type="462c0819:PsiDirectoryNode" />
-              <item name="service-center" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="springcloud-instance" type="b2602c69:ProjectViewProjectNode" />
-              <item name="springcloud-instance" type="462c0819:PsiDirectoryNode" />
-              <item name="zuul-server" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="springcloud-instance" type="b2602c69:ProjectViewProjectNode" />
-              <item name="springcloud-instance" type="462c0819:PsiDirectoryNode" />
-              <item name="zuul-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="springcloud-instance" type="b2602c69:ProjectViewProjectNode" />
-              <item name="springcloud-instance" type="462c0819:PsiDirectoryNode" />
-              <item name="zuul-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="springcloud-instance" type="b2602c69:ProjectViewProjectNode" />
-              <item name="springcloud-instance" type="462c0819:PsiDirectoryNode" />
-              <item name="zuul-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="springcloud-instance" type="b2602c69:ProjectViewProjectNode" />
-              <item name="springcloud-instance" type="462c0819:PsiDirectoryNode" />
-              <item name="zuul-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="springcloud" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="springcloud-instance" type="b2602c69:ProjectViewProjectNode" />
-              <item name="springcloud-instance" type="462c0819:PsiDirectoryNode" />
-              <item name="zuul-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="springcloud" type="462c0819:PsiDirectoryNode" />
-              <item name="jwt" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="springcloud-instance" type="b2602c69:ProjectViewProjectNode" />
-              <item name="springcloud-instance" type="462c0819:PsiDirectoryNode" />
-              <item name="zuul-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="springcloud" type="462c0819:PsiDirectoryNode" />
-              <item name="zuul" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="springcloud-instance" type="b2602c69:ProjectViewProjectNode" />
-              <item name="springcloud-instance" type="462c0819:PsiDirectoryNode" />
-              <item name="zuul-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="springcloud" type="462c0819:PsiDirectoryNode" />
-              <item name="zuul" type="462c0819:PsiDirectoryNode" />
-              <item name="filters" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="springcloud-instance" type="b2602c69:ProjectViewProjectNode" />
-              <item name="springcloud-instance" type="462c0819:PsiDirectoryNode" />
-              <item name="zuul-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="AndroidView" />
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="RequestMappingsPanelOrder0" value="0" />
@@ -350,7 +243,7 @@
     <property name="RequestMappingsPanelWidth2" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../springcloud" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -380,7 +273,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.MailServiceApplication">
+  <component name="RunManager" selected="Spring Boot.ZuulApplication">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
     </configuration>
@@ -505,11 +398,12 @@
       <workItem from="1535782906682" duration="3073000" />
       <workItem from="1537078043985" duration="225000" />
       <workItem from="1539156608528" duration="4733000" />
+      <workItem from="1539220106455" duration="2270000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="173321000" />
+    <option name="totallyTimeSpent" value="181620000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
@@ -525,56 +419,30 @@
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.49764705" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="3" />
-      <window_info id="Image Layers" order="2" />
-      <window_info anchor="bottom" id="Java Enterprise" order="7" />
-      <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.4471831" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.66549295" />
-      <window_info anchor="bottom" id="Spring" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49839056" weight="0.74235296" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.31223175" />
-      <window_info anchor="bottom" id="Problems" order="8" weight="0.32941177" />
-      <window_info anchor="right" id="Bean Validation" order="3" />
-      <window_info id="Web" order="2" side_tool="true" />
-      <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50160944" side_tool="true" weight="0.7429578" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.31223175" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Java Enterprise" order="7" />
-      <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.66549295" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49839056" weight="0.74235296" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Palette&#9;" order="3" />
-      <window_info anchor="right" id="Maven Projects" order="3" weight="0.3299356" />
-      <window_info id="Web" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Spring" order="7" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info id="Image Layers" order="2" />
-      <window_info anchor="right" id="Bean Validation" order="3" />
-      <window_info anchor="right" id="Database" order="3" />
-      <window_info id="Capture Tool" order="2" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.4471831" />
-      <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Problems" order="8" weight="0.32941177" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info id="UI Designer" order="2" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Messages" order="7" weight="0.32933104" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info id="Image Layers" order="2" />
+      <window_info anchor="bottom" id="Java Enterprise" order="7" />
+      <window_info anchor="right" id="Capture Analysis" order="3" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.4471831" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.66549295" />
+      <window_info anchor="bottom" id="Spring" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49839056" weight="0.74235296" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.31223175" />
+      <window_info anchor="bottom" id="Problems" order="8" weight="0.32941177" />
+      <window_info anchor="right" id="Bean Validation" order="3" />
+      <window_info id="Web" order="2" side_tool="true" />
+      <window_info anchor="right" id="Theme Preview" order="3" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info id="Designer" order="2" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -583,56 +451,50 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/zuul-server/src/main/java/com/dongnaoedu/springcloud/zuul/filters/TokenValidataFilter.java</url>
+          <line>40</line>
+          <properties />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/zuul-server/src/main/java/com/dongnaoedu/springcloud/zuul/TonyConfigurationBean.java</url>
+          <line>17</line>
+          <properties />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/zuul-server/src/main/java/com/dongnaoedu/springcloud/zuul/filters/TokenValidataFilter.java</url>
+          <line>51</line>
+          <properties />
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="6" />
+    </breakpoint-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>tonyConfigurationBean.getNoAuthenticationRoutes()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>ctx</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>ctx.get(&quot;proxy&quot;)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/zuul-server/src/main/java/com/dongnaoedu/springcloud/zuul/filters/SendErrorRestFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="10" selection-start-line="10" selection-end-line="59" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/note/springcloud实例.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="224" column="68" selection-start-line="224" selection-start-column="68" selection-end-line="224" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/service-center/sms-service/src/main/java/com/dongnaoedu/springcloud/sms/listener/SmsMqListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="65">
-          <caret line="14" selection-start-line="14" selection-end-line="26" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/uaa-interface/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="74" column="52" selection-start-line="74" selection-start-column="49" selection-end-line="74" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/service-center/sms-service/src/main/java/com/dongnaoedu/springcloud/sms/SmsInterfaceApp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="57" lean-forward="true" selection-start-line="16" selection-end-line="16" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/service-center/order-service/src/main/java/com/dongnaoedu/springcloud/order/OrderServiceApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="25" column="71" lean-forward="true" selection-start-line="25" selection-end-line="25" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-19">
-          <caret line="834" column="33" lean-forward="true" selection-start-line="834" selection-start-column="33" selection-end-line="834" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/note/spring-data-jpa mldn.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
@@ -704,13 +566,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/gouyan/AppTest.java" />
-    <entry file="file://$PROJECT_DIR$/zuul-server/src/main/java/com/dongnaoedu/springcloud/zuul/filters/SendErrorRestFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="10" selection-start-line="10" selection-end-line="59" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/service-center/service-core/src/main/java/com/dongnaoedu/springcloud/order/domains/OrderDomain.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
@@ -795,30 +650,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config-server/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="77">
-          <caret line="13" column="11" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config-server/src/main/resources/configRepo/uaa-interface.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="4" column="31" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/zuul-server/src/main/java/com/dongnaoedu/springcloud/zuul/ZuulApplication.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="265">
           <caret line="20" column="25" lean-forward="true" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/uaa-interface/src/main/resources/bootstrap.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-615" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/deploy/docker-compose-middleware.yml">
@@ -844,13 +680,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2911">
           <caret line="71" column="56" selection-start-line="71" selection-start-column="56" selection-end-line="71" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config-server/src/main/resources/bootstrap.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="492">
-          <caret line="18" column="62" lean-forward="true" selection-start-line="18" selection-start-column="62" selection-end-line="18" selection-end-column="62" />
         </state>
       </provider>
     </entry>
@@ -896,38 +725,124 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/zuul-server/src/main/java/com/dongnaoedu/springcloud/zuul/AppConfig.java">
+    <entry file="file://$PROJECT_DIR$/zuul-server/src/main/java/com/dongnaoedu/springcloud/zuul/filters/SendErrorRestFilter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="164">
+          <caret line="10" selection-start-line="10" selection-end-line="59" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config-server/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="13" column="11" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config-server/src/main/resources/bootstrap.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="738">
+          <caret line="18" column="62" lean-forward="true" selection-start-line="18" selection-start-column="62" selection-end-line="18" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zuul-server/src/main/java/com/dongnaoedu/springcloud/zuul/AppConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
           <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/zuul-server/src/main/java/com/dongnaoedu/springcloud/zuul/TonyConfigurationBean.java">
+    <entry file="file://$PROJECT_DIR$/uaa-interface/src/main/java/com/dongnaoedu/springcloud/uaa/web/JWTToken.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="7" selection-start-line="7" selection-end-line="19" selection-end-column="1" />
+        <state relative-caret-position="451">
+          <caret line="15" column="39" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config-server/src/main/resources/configRepo/zuul-server.yml">
+    <entry file="file://$PROJECT_DIR$/uaa-interface/src/main/resources/bootstrap.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="24" selection-start-line="24" selection-end-line="31" selection-end-column="30" />
+        <state relative-caret-position="-615" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config-server/src/main/resources/configRepo/uaa-interface.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="4" column="31" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uaa-interface/src/main/java/com/dongnaoedu/springcloud/uaa/jwt/JwtConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://F:/ProgramFiles/Java/jdk1.8.0_181/src.zip!/java/util/concurrent/ConcurrentHashMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="933" column="13" selection-start-line="933" selection-start-column="13" selection-end-line="933" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uaa-interface/src/main/java/com/dongnaoedu/springcloud/uaa/jwt/UAAClaims.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uaa-interface/src/main/java/com/dongnaoedu/springcloud/uaa/web/TokenController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="41">
+          <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/netflix/zuul/zuul-core/1.3.0/zuul-core-1.3.0.jar!/com/netflix/zuul/context/RequestContext.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3321">
+          <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/note/springcloud实例.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="411">
-          <caret line="145" column="40" lean-forward="true" selection-start-line="145" selection-start-column="40" selection-end-line="145" selection-end-column="40" />
+        <state relative-caret-position="493">
+          <caret line="275" column="90" lean-forward="true" selection-start-line="275" selection-start-column="56" selection-end-line="275" selection-end-column="90" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uaa-interface/src/main/java/com/dongnaoedu/springcloud/uaa/jwt/JwtTokenProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="41">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config-server/src/main/resources/configRepo/zuul-server.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2583">
+          <caret line="78" column="51" selection-start-line="78" selection-start-column="51" selection-end-line="78" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zuul-server/src/main/java/com/dongnaoedu/springcloud/zuul/TonyConfigurationBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="9" column="47" lean-forward="true" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="47" />
+          <folding>
+            <element signature="e#476#477#0" expanded="true" />
+            <element signature="e#512#513#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/zuul-server/src/main/java/com/dongnaoedu/springcloud/zuul/filters/TokenValidataFilter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="63" column="8" lean-forward="true" selection-start-line="63" selection-start-column="8" selection-end-line="64" selection-end-column="70" />
+        <state relative-caret-position="604">
+          <caret line="49" selection-start-line="49" selection-end-line="49" />
         </state>
       </provider>
     </entry>

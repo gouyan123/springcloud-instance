@@ -37,10 +37,11 @@ public class TokenValidataFilter extends ZuulFilter {
 	@Override
 	public boolean shouldFilter() {
 		RequestContext ctx = RequestContext.getCurrentContext();
-		// 根据routeId，过滤掉不需要做权限校验的请求
+		// ctx.get("proxy")表示 routeId即路由url对应的路由id；tonyConfigurationBean是对zuul-server.yml中 tony.zuul.tokenFilter下配置内容的加载封装；
 		return !tonyConfigurationBean.getNoAuthenticationRoutes().contains(ctx.get("proxy"));
 	}
 
+	/*shouldFilter()判断该filter执行后，由run()方法执行这个filter*/
 	@Override
 	public Object run() {
 		// zuul中，将当前请求的上下文信息存在线程变量中。取出来

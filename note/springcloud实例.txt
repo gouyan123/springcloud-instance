@@ -194,7 +194,7 @@ public class TonyConfigurationBean {
 // 如果判断要执行这个filter，那么 run()方法执行这个 filter；
 @Override
 public Object run() {
-    // zuul中，将当前请求的上下文信息存在线程变量中。取出来
+    // zuul中，将当前请求的上下文信息存在线程变量中，取出来
     RequestContext ctx = RequestContext.getCurrentContext();
     // 从上下文中获取httprequest对象
     HttpServletRequest request = ctx.getRequest();
@@ -205,7 +205,7 @@ public Object run() {
         return null;
     }
     // 检验token是否正确
-    // 这里只是通过使用key对token进行解码是否成功，并没有对有效期、已经token里面的内容进行校验。
+    // 这里只是通过使用key对token进行解码是否成功，并没有对有效期、以及token里面的内容进行校验。
     Claims claims = jwtTokenProvider.parseToken(token);
     if (claims == null) {
         forbidden();
@@ -267,11 +267,31 @@ public class SendErrorRestFilter extends SendErrorFilter {
 		return throwable;
 	}
 }
-zuul-server配置文件将/tocken/byPhone路由到 uaa-interface用户中心，进入该系统 TokenController类的
+zuul-server配置文件将/token/byPhone路由到 uaa-interface用户中心，进入该系统 TokenController类的
 @PostMapping("/token/byPhone")  @Repository
 getTokenByPhone()方法，里面调用了  UserRepository接口，这是spring data jpa写的，验证成功，利用jwt
-创建tocken，jwtTokenProvider.createToken(parseClaims(domain)))
+创建tocken，jwtTokenProvider.createToken(parseClaims(domain)))并返回；
 ---
+获取token：
+发post请求 http://127.0.0.1:8765/api/token/byPhone ，json数据为{"phone":"10086","password":"123"}，该url请求的是网关zuul，要先执行 pre类型的filter，
+pre类型filter有多个，按顺序执行，每个filter有 2个主要方法，shouldFilter()方法判断这个filter是否执行，run()方法执行这个filter，此处自定义了一个pre类型filter
+TokenValidataFilter，覆写@Override public int filterOrder() {return 6; // 这个是执行顺序，因为同一个类型的filter可能有多个。 值越小越靠前}，框架还自定义
+了几个pre类型filter，在TokenValidataFilter之前执行，主要进行路由定位，即根据网关url找到真正任务url，然后给 route类型filter发起请求；
+TokenValidataFilter类的shouldFilter()方法肯定会执行，代码如下：
+@Override
+public boolean shouldFilter() {
+    RequestContext ctx = RequestContext.getCurrentContext();
+    // ctx.get("proxy")表示 routeId即路由url对应的路由id；tonyConfigurationBean是对zuul-server.yml中 tony.zuul.tokenFilter下配置内容的加载封装；
+    return !tonyConfigurationBean.getNoAuthenticationRoutes().contains(ctx.get("proxy"));
+}
+ctx.get("proxy")表示路由url对应的routeId，tonyConfigurationBean加载zuul-server.yml中 tony.zuul.tokenFilter '下' 的自定义配置 到列表中，
+getNoAuthenticationRoutes()表示获取tony.zuul.tokenFilter'下' 的自定义配置，此处 tony.zuul.tokenFilter '下'定义的是 tony.zuul.tokenFilter.uaa-token
+整体表示 如果自定义列表中包含 当前请求路由url对应的routeId，对于这个 路由就不执行这个filter；routeId，网关url，真正服务url 解释如下：
+routes:     # 定义静态路由
+    uaa-token:  # routeId 路由id
+      path: /token/byPhone  # 网关url
+      serviceId: uaa-interface  # 真正服务
+
 网关zuul结束；
 -------------------springcloud-instance代码开发-------------------------------------------
 通过 index.html实现前后端分离，springcloud使用docker部署，使用portainer工具进行动态扩容；将开发的项目
