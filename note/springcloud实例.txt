@@ -273,7 +273,7 @@ getTokenByPhone()方法，里面调用了  UserRepository接口，这是spring d
 创建tocken，jwtTokenProvider.createToken(parseClaims(domain)))并返回；
 ---
 获取token：
-发post请求 http://127.0.0.1:8765/api/token/byPhone ，json数据为{"phone":"10086","password":"123"}，该url请求的是网关zuul，要先执行 pre类型的filter，
+发post请求 http://127.0.0.1:8765/api/token/byPhone ，json数据为{"phone":"10086","password":"123"}，该url请求的是 网关zuul，要先执行 pre类型的filter，
 pre类型filter有多个，按顺序执行，每个filter有 2个主要方法，shouldFilter()方法判断这个filter是否执行，run()方法执行这个filter，此处自定义了一个pre类型filter
 TokenValidataFilter，覆写@Override public int filterOrder() {return 6; // 这个是执行顺序，因为同一个类型的filter可能有多个。 值越小越靠前}，框架还自定义
 了几个pre类型filter，在TokenValidataFilter之前执行，主要进行路由定位，即根据网关url找到真正任务url，然后给 route类型filter发起请求；
@@ -290,7 +290,21 @@ getNoAuthenticationRoutes()表示获取tony.zuul.tokenFilter'下' 的自定义�
 routes:     # 定义静态路由
     uaa-token:  # routeId 路由id
       path: /token/byPhone  # 网关url
-      serviceId: uaa-interface  # 真正服务
+      serviceId: uaa-interface  # 真正服务url
+执行完 pre类型filter，执行 route类型filter，由网关url获得真正服务url，然后对真正服务url发起请求，此处请求的是 uaa-interface服务的 /token/byPhone接口，方法如下：
+@Autowired
+JwtConfiguration jwtConfiguration;  //自定义配置类JwtConfiguration，加载application.yml中的token.jwt.key=a123456789 #加密的key token.jwt.iss=uaa-interface # 发放者 token.jwt.expm=120 # 有效期120分钟，并将该类实例化对象加载到spring容器
+@Autowired
+JwtTokenProvider jwtTokenProvider;  //自定义JwtTokenProvider类，注入JwtConfiguration，然后根据自己token的配置，进行创建token，转换token；
+@PostMapping("/token/byPhone")      // 获取一个根据手机号和密码获取token
+public ResponseEntity<?> getTokenByPhone(@RequestBody UserDomain userDomain) {  //@RequestBody表示获取请求体中的参数然后封装到 UserDomain里面；
+    // 根据传进来的用户参数 去用户注册数据表里面查找，如果能查到，说明用户已注册，可以给他创建 token，并返回；
+    UserDomain domain = userRepository.findByPhoneAndPassword(userDomain.getPhone(), userDomain.getPassword());
+    if (domain == null) {
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("验证不通过");
+    }
+    return ResponseEntity.ok(new JWTToken(jwtTokenProvider.createToken(parseClaims(domain))));
+}
 
 网关zuul结束；
 -------------------springcloud-instance代码开发-------------------------------------------
