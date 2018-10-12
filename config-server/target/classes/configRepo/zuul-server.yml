@@ -76,4 +76,4 @@ tony:
       enable: false
     tokenFilter:
       noAuthenticationRoutes: 
-        - uaa-token   # -表示列表
+        - uaa-token   # - uaa-token 表示名称为 uaa-token的列表

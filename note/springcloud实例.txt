@@ -171,7 +171,7 @@ tony:
       enable: false
     tokenFilter:
       noAuthenticationRoutes:
-        - uaa-token     # -代表list集合
+        - uaa-token     # -表示被@ConfigurationProperties("tony.zuul.tokenFilter.noAuthenticationRoutes")加载后的类型，不是String，而是list；
 # 通过配置文件配置的静态路由
   routes:
     uaa-token:                      # 指定了一个路由，Id为uaa-token，在做验权的时候需要用到
