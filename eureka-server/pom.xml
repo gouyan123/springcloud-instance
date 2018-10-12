@@ -67,7 +67,7 @@
 				<version>0.4.13</version>
 				<configuration>
 					<!--${env.DOCKER_REGISTRY_URL}/：镜像目录，在阿里云上就用阿里云地址；在自己私有仓库上面，就用自己私服的地址192.168.99.101:5000-->
-					<imageName>registry.cn-hangzhou.aliyuncs.com/dongnao/${project.artifactId}:${project.version}</imageName>
+					<imageName>192.168.245.128:5000/${project.artifactId}:${project.version}</imageName>
 					<!--<imageName>${env.DOCKER_REGISTRY_URL}/dongnao/${project.artifactId}:${project.version}</imageName>-->
 					<!--将jar包和Dockerfile放到 同一个文件夹docker中-->
 					<dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory>

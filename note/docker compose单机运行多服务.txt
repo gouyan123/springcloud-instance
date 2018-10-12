@@ -1,31 +1,5 @@
-# win7 powershell中 切换，关闭，删除default虚拟机
-docker-machine env default
-# 关闭default主机
-docker-machine stop default
-# 移除default主机
-docker-machine rm default
-
-# powershell中执行如下命令，创建 myvm虚拟机
-docker-machine create --virtualbox-memory "6144" --engine-registry-mirror="https://s0iielsh.mirror.aliyuncs.com" --engine-insecure-registry="0.0.0.0/0" -d virtualbox myvm
-# powershell中执行如下命令，切换到 myvm虚拟机
-docker-machine.exe env myvm，返回& "F:\Program Files\Docker Toolbox\docker-machine.exe" env myvm | Invoke-Expression，复制该语句再执行；
-
-# 为 myvm重新生成证书
-docker-machine regenerate-certs myvm
-
-# Windows上使用Docker Compose
-# powershell切换到ssh连接 docker-machine ssh
-# ssh连接中获取用户权限 sudo -i
-# 执行如下 2条命令
-curl -L https://github.com/docker/compose/releases/download/1.8.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
-chmod +x /usr/local/bin/docker-compose
-# 回到docker用户权限 exit
-# 测试Docker-Compose安装成功 docker-compose --version
-# stop停止所有容器，docker ps -a -q表示查看所有容器
-docker stop $(docker ps -a -q)
-
+单机运行多服务步骤如下：
 # 基础环境(mysql...)与服务是分开部署的
-
 # 通过服务编排工具 docker-compose部署基础环境，看deploy/docker-compose-middleware.yml文件；镜像image启动后，变成一个容器container，才能提供服务servic；
 # docker-compose-middleware.yml中 environment表示环境变量，ip要换成主机名称hostname；
 # elk = elasticsearch搜索 + logstash日志汇总 + kibana为es搜索提供可视化，即各服务将日志发送给logstash组件(或者logstash主动拉取各服务日志)，汇总后logstash
@@ -33,13 +7,39 @@ docker stop $(docker ps -a -q)
 # zipkin：分布式调用 链路追踪，可视化管理工具；
 # registry：运行私有仓库，存储公共镜像的地方；
 # 运行 docker-compose-middleware.yml文件，使用docker-compose命令运行：
-docker-compose.exe -f E:\deploy\docker-compose-middleware.yml -p dongnao up -d
+docker-compose -f ./deploy/docker-compose-middleware.yml -p dongnao up -d
 
 # 查看当前正在运行的容器：
 docker ps -a
 
 # 将各项目打包，切换到 pom.xml文件所在目录：
 mvn clean install
+# 使用maven插件docker-maven-plugin，将编译的包 打为镜像，并将该镜像放到 docker私有仓库上，docker-maven-plugin配置如下；
+<plugin>
+    <groupId>com.spotify</groupId>
+    <artifactId>docker-maven-plugin</artifactId>
+    <version>0.4.13</version>
+    <configuration>
+        <!--${env.DOCKER_REGISTRY_URL}/：镜像目录，在阿里云上就用阿里云地址；在自己私有仓库上面，就用自己私服的地址192.168.245.128:5000-->
+        <!--设置环境变量 export DOCKER_REGISTRY_URL=192.168.245.128:5000 -->
+        <imageName>${env.DOCKER_REGISTRY_URL}/${project.artifactId}:${project.version}</imageName>
+        <!--将jar包和Dockerfile放到 同一个文件夹docker中-->
+        <dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory>
+        <resources>
+            <resource>
+                <targetPath>/</targetPath>
+                <directory>${project.build.directory}</directory>
+                <include>${project.build.finalName}.jar</include>
+            </resource>
+        </resources>
+        <!-- 以下两行是为了docker push到DockerHub使用的。 -->
+        <serverId>docker-aliyun-hub</serverId>
+        <registryUrl>registry.cn-hangzhou.aliyuncs.com/dongnao</registryUrl>
+        <!--<registryUrl>${env.DOCKER_REGISTRY_URL}</registryUrl>-->
+    </configuration>
+</plugin>
+将jar包构建为镜像 并发送到私有仓库：
+mvn docker:build -DpushImage
 # 构建镜像 2 种方式：①将 FROM, ENTRYPOINT, CMD, MAINTAINER 以及 ADD 信息配置在 POM 中，不需要使用 Dockerfile 配置；②创建一个 Dockerfile，并在 POM中配置
 dockerDirectory 来指定路径即可；
 # 通过maven插件docker-maven-plugin，打包镜像，并将镜像存到私有仓库(registry)；

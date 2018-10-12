@@ -1,7 +1,6 @@
 -------------------------创建swarm集群--------------------------------------------------------------
-# 在myvm1中创建一个swarm manage主节点；linux下直接写IP，windows下写虚拟机IP
-docker swarm init --advertise-addr <机器ip>
-
+# 创建swarm集群
+docker swarm init ‐‐advertise‐addr <ip>
 # 创建集群下的网络，首先查询网络[docker network ls]
 docker network create -d overlay --subnet 10.0.0.1/24 --attachable swarm_net
 
