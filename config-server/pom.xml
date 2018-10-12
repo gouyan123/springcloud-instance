@@ -75,7 +75,8 @@
 				<artifactId>docker-maven-plugin</artifactId>
 				<version>0.4.13</version>
 				<configuration>
-					<imageName>${env.DOCKER_REGISTRY_URL}/${project.artifactId}:${project.version}</imageName>
+					<!--<imageName>${env.DOCKER_REGISTRY_URL}/${project.artifactId}:${project.version}</imageName>-->
+					<imageName>192.168.245.128:5000/${project.artifactId}:${project.version}</imageName>
 					<dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory>
 					<resources>
 						<resource>
@@ -86,7 +87,8 @@
 					</resources>
 					<!-- 以下两行是为了docker push到DockerHub使用的。 -->
 					<serverId>docker-aliyun-hub</serverId>
-					<registryUrl>${env.DOCKER_REGISTRY_URL}</registryUrl>
+					<!--<registryUrl>${env.DOCKER_REGISTRY_URL}</registryUrl>-->
+					<registryUrl>192.168.245.128:5000</registryUrl>
 				</configuration>
 			</plugin>
 		</plugins>
