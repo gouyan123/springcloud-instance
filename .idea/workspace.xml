@@ -4,8 +4,6 @@
     <list default="true" id="a5e424af-d5f2-412b-822d-c65c0afd6120" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eureka-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-server/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/note/docker compose单机运行多服务.txt" beforeDir="false" afterPath="$PROJECT_DIR$/note/docker compose单机运行多服务.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/note/docker swarm集群部署.txt" beforeDir="false" afterPath="$PROJECT_DIR$/note/docker swarm集群部署.txt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -31,13 +29,18 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="docker compose单机运行多服务.txt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="docker compose单机运行多服务.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/note/docker compose单机运行多服务.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="452">
-              <caret line="23" column="66" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="66" />
+            <state relative-caret-position="944">
+              <caret line="41" selection-start-line="41" selection-end-line="41" selection-end-column="28" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Dockerfile" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/eureka-server/src/main/docker/Dockerfile">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file leaf-file-name="application.yml" pinned="false" current-in-tab="false">
@@ -54,11 +57,11 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/eureka-server/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="85" column="21" lean-forward="true" selection-start-line="63" selection-start-column="12" selection-end-line="85" selection-end-column="21" />
+            <state relative-caret-position="343">
+              <caret line="69" column="51" selection-start-line="69" selection-start-column="31" selection-end-line="69" selection-end-column="51" />
             </state>
           </provider>
         </entry>
@@ -164,8 +167,8 @@
         <option value="$PROJECT_DIR$/uaa-interface/src/main/java/com/dongnaoedu/springcloud/uaa/web/TokenController.java" />
         <option value="$PROJECT_DIR$/note/springcloud实例.txt" />
         <option value="$PROJECT_DIR$/note/docker swarm集群部署.txt" />
-        <option value="$PROJECT_DIR$/eureka-server/pom.xml" />
         <option value="$PROJECT_DIR$/note/docker compose单机运行多服务.txt" />
+        <option value="$PROJECT_DIR$/eureka-server/pom.xml" />
       </list>
     </option>
   </component>
@@ -243,6 +246,14 @@
               <item name="eureka-server" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springcloud-instance" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springcloud-instance" type="462c0819:PsiDirectoryNode" />
+              <item name="eureka-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="docker" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="springcloud-instance" type="b2602c69:ProjectViewProjectNode" />
@@ -611,12 +622,12 @@
       <workItem from="1539156608528" duration="4733000" />
       <workItem from="1539220106455" duration="9114000" />
       <workItem from="1539340062315" duration="570000" />
-      <workItem from="1539341904096" duration="3985000" />
+      <workItem from="1539341904096" duration="5565000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="193019000" />
+    <option name="totallyTimeSpent" value="194599000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
@@ -731,13 +742,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/service-center/service-core/src/main/java/com/dongnaoedu/springcloud/stream/converter/FastJsonMessageConverter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="16" column="37" lean-forward="true" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config-server/src/main/resources/configRepo/wms-service.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -1060,17 +1064,20 @@
     <entry file="file://$PROJECT_DIR$/eureka-server/src/main/resources/bootstrap.yml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/eureka-server/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="85" column="21" lean-forward="true" selection-start-line="63" selection-start-column="12" selection-end-line="85" selection-end-column="21" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/eureka-server/src/main/docker/Dockerfile">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/note/docker compose单机运行多服务.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="452">
-          <caret line="23" column="66" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="66" />
+        <state relative-caret-position="944">
+          <caret line="41" selection-start-line="41" selection-end-line="41" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eureka-server/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="343">
+          <caret line="69" column="51" selection-start-line="69" selection-start-column="31" selection-end-line="69" selection-end-column="51" />
         </state>
       </provider>
     </entry>

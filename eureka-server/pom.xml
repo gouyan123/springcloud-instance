@@ -80,7 +80,7 @@
 					</resources>
 					<!-- 以下两行是为了docker push到DockerHub使用的。 -->
 					<serverId>docker-aliyun-hub</serverId>
-					<registryUrl>registry.cn-hangzhou.aliyuncs.com/dongnao</registryUrl>
+					<registryUrl>192.168.245.128:5000</registryUrl>
 					<!--<registryUrl>${env.DOCKER_REGISTRY_URL}</registryUrl>-->
 				</configuration>
 			</plugin>
